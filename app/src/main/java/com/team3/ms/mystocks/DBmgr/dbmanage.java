@@ -1,6 +1,7 @@
 package com.team3.ms.mystocks.DBmgr;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -35,6 +36,12 @@ public class dbmanage extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public Cursor getUser(String name){
+        Cursor c = db.rawQuery("select * from user where name='"+name+"'", null);
+        //Cursor c = db.query(TBL_NAME, null, null, null, null, null, null);
+        return c;
     }
 }
 
