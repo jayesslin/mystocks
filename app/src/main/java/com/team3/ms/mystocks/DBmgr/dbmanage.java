@@ -63,7 +63,7 @@ public class dbmanage extends SQLiteOpenHelper {
     public void save(user user){
         open();
         db.execSQL("insert into user values(null,?,?,?)",new String []{user.getUserName(),user.getEmail(),user.getPassword()});
-        Log.i("=======","email" + user.getEmail()+" name "+user.getUserName()+" psd "+user.getPassword());
+        Log.i("=======","email " + user.getEmail()+" name "+user.getUserName()+" psd "+user.getPassword());
         close();
     }
     public Cursor getUser(String name){
