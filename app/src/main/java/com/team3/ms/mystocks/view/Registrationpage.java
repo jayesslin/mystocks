@@ -26,32 +26,8 @@ public class Registrationpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regi_page);
         dbMgr = new dbmanage(Registrationpage.this, "MyStocks.db", null, 1);
-/*
         Username = (EditText)findViewById(R.id.Username);
-        Email1 = (EditText)findViewById(R.id.email);
-        Password = (EditText)findViewById(R.id.password);
-        Registration = (Button)findViewById(R.id.Submit);
-        Registration.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String Email = Email1.getText().toString();
-                String UserName = Username.getText().toString();
-                String password = Password.getText().toString();
-                usercontroller uc = new usercontroller();//实例化UserController类；
-                if(TextUtils.isEmpty(Email)||TextUtils.isEmpty(UserName)||TextUtils.isEmpty(password)){
-                    Toast.makeText(MainActivity.this,"Form cannot be empty!!!",(int)2000).show();
-                }
-                else {
-                    uc.registered(dbMgr,Email,UserName,password);
-
-                    Username.setText("");
-                    Email1.setText("");
-                    Password.setText("");
-                }
-            }
-        });*/
-
-        Username = (EditText)findViewById(R.id.Username);
-        Email = (EditText)findViewById(R.id.email);
+        Email = (EditText)findViewById(R.id.command);
         Password = (EditText)findViewById(R.id.password);
 
         Registration = (Button)findViewById(R.id.Registration);
@@ -73,6 +49,8 @@ public class Registrationpage extends AppCompatActivity {
                                 Username.setText("");
                                 Email.setText("");
                                 Password.setText("");
+                                 dbMgr.query();
+                                 dbMgr.getUser(username);
                         }
                         else {
                             Toast.makeText(Registrationpage.this,"Your password is not correct!!",(int)3000).show();

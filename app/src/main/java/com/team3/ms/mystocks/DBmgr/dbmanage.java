@@ -14,7 +14,7 @@ public class dbmanage extends SQLiteOpenHelper {
     //database name
     private static final String DB_NAME = "MyStocks.db";
     //table name
-   // private static final String TBL_NAME = "user";
+    private static final String TBL_NAME = "user";
     //建立数据库表SQL语句
     private static final String CREATE_TBL = "create table user " +
             "(id integer primary key autoincrement,name varchar(20) unique,email varchar(20),password varchar(20))";
@@ -66,13 +66,78 @@ public class dbmanage extends SQLiteOpenHelper {
         Log.i("=======","email " + user.getEmail()+" name "+user.getUserName()+" psd "+user.getPassword());
         close();
     }
-    public Cursor getUser(String name){
+   /* public Cursor getUser(String name){
         open();
         Cursor c = db.rawQuery("select * from user where name='"+name+"'", null);
         //Cursor c = db.query(TBL_NAME, null, null, null, null, null, null);
         close();
         return c;
 
+    }*/
+    public user getUser(String UserName){
+        open();
+        Cursor c = db.rawQuery("select * from user where name='"+UserName+"'", null);
+        String username,email,password;
+        user user;
+        while (c.moveToNext()) {
+            String id = c.getString(0);
+            username = c.getString(1);
+            email= c.getString(2);
+            password = c.getString(3);
+            user = new user(email,username,password);
+            Log.i("++++++GetUSER","id: "+id+ " eamil: "+user.getEmail()+" password: "+password+" username: "+username);
+            return user;
+        }
+        close();
+       return null;
     }
+
+
+
+
+
+
+
+
+
+    public boolean updateuser(user user){
+        open();
+        String user_name= user.getUserName();
+        String new_password=user.getPassword();
+        ContentValues values =new ContentValues();
+        values.put("password",new_password);
+        db.update(TBL_NAME, values, "name=?", new String[]{""+user_name});
+        Log.i("***********"," 修改数据库成功, 新密码："+new_password);
+        close();
+        return true;
+
+    }
+
+
+
+
+
+
+    /********************************************************************************************/
+    /********************************************************************************************/
+    /********************************              for test!         *****************************/
+    /********************************************************************************************/
+    public void query(){
+        open();
+        Cursor c = db.rawQuery("select * from user ", null);
+        //Cursor c = db.query(TBL_NAME, null, null, null, null, null, null);
+
+        while (c.moveToNext()) {
+            String id = c.getString(0);
+            String email= c.getString(2);
+            String username = c.getString(1);
+            String password = c.getString(3);
+            user userTest = new user(email,username,password);
+            Log.i("++++++","id: "+id+ " username: "+username+" eamil: "+email+" password: "+password);
+        }
+        close();
+    }
+
+
 }
 

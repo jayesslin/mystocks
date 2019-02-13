@@ -12,9 +12,11 @@ public class user {
         return Email;
     }
     public String getPassword(){
+
         return password;
     }
     public void setUserName(String UserName){
+
         this.UserName = UserName;
     }
     public void setEmail(String Email){
