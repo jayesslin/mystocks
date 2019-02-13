@@ -40,6 +40,15 @@ public class Changepasswordpage extends AppCompatActivity {
 
 
         Submit = (Button)findViewById(R.id.Submit);
+        Return = (Button)findViewById(R.id.Return);
+        Return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sss2 = new Intent(getApplicationContext(),Login.class);
+                startActivity(sss2);
+            }
+        });
+
         //设置Submit按钮的功能
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
