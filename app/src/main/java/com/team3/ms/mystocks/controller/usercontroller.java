@@ -5,13 +5,21 @@ import android.util.Log;
 
 import com.team3.ms.mystocks.entity.user;
 public class usercontroller {
-    public boolean login(String username,String password, dbmanage db){
-        user c = db.getUser(username);
-        if(password==c.getPassword()){
-            return true;
-        }else {
-            return false;
+    public boolean verifes(String username,String password, dbmanage db){
+        db.open();
+        Cursor c = db.getUserL(username);
+        String passwordtmp;
+        while (c.moveToNext()) {
+            passwordtmp=c.getString(c.getColumnIndex("password"));
+            System.out.println(passwordtmp);
+            if(password.equals(passwordtmp)){
+                return true;
+            }else {
+                return false;
+            }
         }
+        db.close();
+        return false;
     }
     public void registered(dbmanage dbMgr, String Email, String UserName, String password){
         user user = new user(Email,UserName,password);

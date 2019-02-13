@@ -1,5 +1,6 @@
 package com.team3.ms.mystocks.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -59,6 +60,8 @@ public class Changepasswordpage extends AppCompatActivity {
                     Username.setText("");
                     email.setText("");
                     password.setText("");
+                    Intent sss4 = new Intent(getApplicationContext(),Login.class);
+                    startActivity(sss4);
                 }
                 else {
                     Toast.makeText(Changepasswordpage.this,"ERROR EMAIL!",(int)2000).show();

@@ -9,15 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Changepasswordpage">
+        <activity android:name=".view.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!--<activity android:name=".view.Registrationpage"></activity>-->
-              <!--<activity android:name=".view.Changepasswordpage"></activity>-->
+                <!-- <activity android:name=".view.Registrationpage"></activity> -->
+                <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.Registrationpage" />
+        <activity android:name=".view.Changepasswordpage" />
+        <activity android:name=".view.homePage"></activity>
     </application>
 
 </manifest>

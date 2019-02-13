@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import com.team3.ms.mystocks.entity.user;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class dbmanage extends SQLiteOpenHelper {
     //private Context context;
     //database name
@@ -91,6 +94,25 @@ public class dbmanage extends SQLiteOpenHelper {
         close();
        return null;
     }
+    public Cursor getUserL(String name){
+        open();
+        String strPattern = "^[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
+        Pattern p = Pattern.compile(strPattern);
+        Matcher m = p.matcher(name);
+        Cursor c;
+        if(m.matches()){
+            c = db.rawQuery("select * from user where email='"+name+"'", null);
+        }else{
+            c = db.rawQuery("select * from user where name='"+name+"'", null);
+        }
+
+        System.out.println(c.getCount());
+        //Cursor c = db.query(TBL_NAME, null, null, null, null, null, null);
+        close();
+        return c;
+
+    }
+
 
 
 

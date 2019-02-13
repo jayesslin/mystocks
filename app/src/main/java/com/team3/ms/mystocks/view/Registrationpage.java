@@ -1,5 +1,6 @@
 package com.team3.ms.mystocks.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -27,7 +28,7 @@ public class Registrationpage extends AppCompatActivity {
         setContentView(R.layout.regi_page);
         dbMgr = new dbmanage(Registrationpage.this, "MyStocks.db", null, 1);
         Username = (EditText)findViewById(R.id.Username);
-        Email = (EditText)findViewById(R.id.command);
+        Email = (EditText)findViewById(R.id.email);
         Password = (EditText)findViewById(R.id.password);
 
         Registration = (Button)findViewById(R.id.Registration);
@@ -51,6 +52,8 @@ public class Registrationpage extends AppCompatActivity {
                                 Password.setText("");
                                  dbMgr.query();
                                  dbMgr.getUser(username);
+                                Intent sss3 = new Intent(getApplicationContext(),Login.class);
+                                startActivity(sss3);
                         }
                         else {
                             Toast.makeText(Registrationpage.this,"Your password is not correct!!",(int)3000).show();
@@ -64,6 +67,14 @@ public class Registrationpage extends AppCompatActivity {
                     Toast.makeText(Registrationpage.this,"No such a emial,please check you have written the recipient's mail address correctly!",(int)3000).show();
                 }
 
+            }
+        });
+        Return = (Button)findViewById(R.id.Return);
+        Return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sss2 = new Intent(getApplicationContext(),Login.class);
+                startActivity(sss2);
             }
         });
 

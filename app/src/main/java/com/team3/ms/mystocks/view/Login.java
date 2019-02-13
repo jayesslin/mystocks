@@ -16,6 +16,7 @@ import com.team3.ms.mystocks.controller.usercontroller;
 
 import com.team3.ms.mystocks.R;
 
+
 public class Login extends AppCompatActivity {
     private EditText accountEditText,passwordEditText;
     private Button loginButton,RegisteredButton,ChangeButton;
@@ -27,7 +28,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        dbMgr= new dbmanage(Login.this,"tm_tb",null,1);
+        dbMgr= new dbmanage(Login.this,"MyStocks.db",null,1);
         db=dbMgr.getWritableDatabase();
         accountEditText = (EditText)findViewById(R.id.accountEditText);
         passwordEditText = (EditText)findViewById(R.id.passwordEditText);
@@ -42,34 +43,39 @@ public class Login extends AppCompatActivity {
                 usercontroller uc = new usercontroller();
                 if (TextUtils.isEmpty(username)||TextUtils.isEmpty(pw)){
                     Toast.makeText(Login.this,"The account or password cannot be empty",(int)2000).show();
+
                 }
-                else if (uc.login(username,pw,dbMgr)){
-//                    Intent s = new Intent(getApplicationContext(),MainEvent_Activity.class);
+                else if (uc.verifes(username,pw,dbMgr)){
+                    System.out.println("hi");
+                    Toast.makeText(Login.this,"Success",(int)2000).show();
+                    Intent s = new Intent(getApplicationContext(),homePage.class);
 //                    s.putExtra("extra_data",username);
 //                    s.putExtra("extra_password",pw);
-//                    startActivity(s);
+                    startActivity(s);
                 }
                 else {
-                    Toast.makeText(Login.this,"WRONG PASSWORD!!!",(int)2000).show();
+                    System.out.println("hi");
+                    Toast.makeText(Login.this,"Username or password is incorrect!!!",(int)2000).show();
 
                 }
             }
         });
-//        RegisteredButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent s2 = new Intent(getApplicationContext(),Register_Activity.class);
-//                startActivity(s2);
-//            }
-//        });
-//        ChangeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent s3 = new Intent(getApplicationContext(),Changepassword_Activity.class);
-//                startActivity(s3);
-//
-//            }
-//        });
+        RegisteredButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s2 = new Intent(getApplicationContext(),Registrationpage.class);
+                startActivity(s2);
+            }
+        });
+        ChangeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s3 = new Intent(getApplicationContext(),Changepasswordpage.class);
+                startActivity(s3);
+
+            }
+        });
 
     }
+
 }
