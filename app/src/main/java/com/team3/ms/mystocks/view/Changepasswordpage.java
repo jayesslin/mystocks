@@ -77,7 +77,7 @@ public class Changepasswordpage extends AppCompatActivity {
                 }*/
                 else{
                    int res =  uc.ChangePassword(dbMgr,username,email_address,psw);
-                    switch(res){
+                   switch(res){
                         case 1 :
                             Log.i("*******","going insert!");
                             dbMgr.query();
@@ -90,12 +90,12 @@ public class Changepasswordpage extends AppCompatActivity {
                             Intent sss4 = new Intent(getApplicationContext(),Login.class);
                             startActivity(sss4);
                             //语句
-                            break; //可选
+                            break;
                         case 2 :
                             Toast.makeText(Changepasswordpage.this,"Wrong Email!",(int)3000).show();
                             //语句
-                            break; //可选
-                        //你可以有任意数量的case语句
+                            break;
+
                         case 3:
                             Toast.makeText(Changepasswordpage.this,"User is not exist!",(int)3000).show();//可选
                             break;
