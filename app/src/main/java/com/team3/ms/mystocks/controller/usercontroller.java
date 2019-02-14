@@ -21,9 +21,19 @@ public class usercontroller {
         db.close();
         return false;
     }
-    public void registered(dbmanage dbMgr, String Email, String UserName, String password){
+   /* public void registered(dbmanage dbMgr, String Email, String UserName, String password){
         user user = new user(Email,UserName,password);
+
         dbMgr.save(user);
+    }*/
+    public boolean registered(dbmanage dbMgr, String Email, String UserName, String password){
+        user user = new user(Email,UserName,password);
+        if(dbMgr.getUser(UserName)!=null){
+            return false;
+        }else{
+            dbMgr.save(user);
+            return true;
+        }
     }
     public boolean changepassword(dbmanage db, String email, String username, String Newpassword){
         Log.i("*******","查询用户");
@@ -39,11 +49,12 @@ public class usercontroller {
         }
     }
 
-   public Boolean ChangePassword(dbmanage dbMgr,String username,String email,String newpassword){
+  /* public Boolean ChangePassword(dbmanage dbMgr,String username,String email,String newpassword){
         user user;
         Boolean msg=Boolean.TRUE;
 
         user=dbMgr.getUser(username);
+
         Log.i("*******","old email:"+user.getEmail()+"  new email:"+email);
         String temp= user.getEmail();
         if(temp.equals(email)){
@@ -57,6 +68,34 @@ public class usercontroller {
         }
         dbMgr.close();
         return msg;
+    }*/
+    public int ChangePassword(dbmanage dbMgr,String username,String email,String newpassword){
+        user user;
+        Boolean msg=Boolean.TRUE;
+
+        user=dbMgr.getUser(username);
+        if(user!=null) {
+            Log.i("*******", "old email:" + user.getEmail() + "  new email:" + email);
+            String temp = user.getEmail();
+            if (temp.equals(email)) {
+                user.setPassword(newpassword);
+                dbMgr.updateuser(user);
+                Log.i("***********", " 调用db得update（）方法成功");
+                dbMgr.close();
+                return 1;
+            } else {
+                //not match
+                dbMgr.close();
+                return 2;
+            }
+        }
+        else{
+            //user is not exist
+            dbMgr.close();
+            return 3;
+        }
+
+
     }
 
 }

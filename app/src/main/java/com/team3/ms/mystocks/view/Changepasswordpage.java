@@ -60,7 +60,7 @@ public class Changepasswordpage extends AppCompatActivity {
                 if(TextUtils.isEmpty(email_address)||TextUtils.isEmpty(username)||TextUtils.isEmpty(psw)){
                     Toast.makeText(Changepasswordpage.this,"Form cannot be empty!!!",(int)3000).show();
                 }
-                else if(uc.ChangePassword(dbMgr,username,email_address,psw)){
+                /*else if(uc.ChangePassword(dbMgr,username,email_address,psw)){
                     Log.i("*******","going insert!");
                     dbMgr.query();
                     Log.i("***********"," 0");
@@ -74,6 +74,32 @@ public class Changepasswordpage extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(Changepasswordpage.this,"ERROR EMAIL!",(int)2000).show();
+                }*/
+                else{
+                   int res =  uc.ChangePassword(dbMgr,username,email_address,psw);
+                    switch(res){
+                        case 1 :
+                            Log.i("*******","going insert!");
+                            dbMgr.query();
+                            Log.i("***********"," 0");
+                            Toast.makeText(Changepasswordpage.this,"Successfully!",(int)2000).show();
+                            //test
+                            Username.setText("");
+                            email.setText("");
+                            password.setText("");
+                            Intent sss4 = new Intent(getApplicationContext(),Login.class);
+                            startActivity(sss4);
+                            //语句
+                            break; //可选
+                        case 2 :
+                            Toast.makeText(Changepasswordpage.this,"Wrong Email!",(int)3000).show();
+                            //语句
+                            break; //可选
+                        //你可以有任意数量的case语句
+                        case 3:
+                            Toast.makeText(Changepasswordpage.this,"User is not exist!",(int)3000).show();//可选
+                            break;
+                    }
                 }
             }
         });

@@ -45,7 +45,10 @@ public class Registrationpage extends AppCompatActivity {
                         if(isPassword(password)){
                                 Toast.makeText(Registrationpage.this,"Successfully!!",(int)3000).show();
                                 usercontroller uc = new usercontroller();//实例化UserController类；
-                                uc.registered(dbMgr,email,username,password);
+                                boolean res = uc.registered(dbMgr,email,username,password);
+                                if(res==false){
+                                    Toast.makeText(Registrationpage.this,"This account already exists!",(int)3000).show();
+                                }else {
                                 //Toast.makeText(Regitest.this,"Successfully!",(int)2000).show();
                                 Username.setText("");
                                 Email.setText("");
@@ -53,7 +56,7 @@ public class Registrationpage extends AppCompatActivity {
                                  dbMgr.query();
                                  dbMgr.getUser(username);
                                 Intent sss3 = new Intent(getApplicationContext(),Login.class);
-                                startActivity(sss3);
+                                startActivity(sss3);}
                         }
                         else {
                             Toast.makeText(Registrationpage.this,"Your password is not correct!!",(int)3000).show();
