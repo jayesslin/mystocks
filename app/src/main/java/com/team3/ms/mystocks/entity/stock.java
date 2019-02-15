@@ -26,6 +26,23 @@ package com.team3.ms.mystocks.entity;
         "aftertime":"Mar 11 7:59PM EDT",	*//*盘后计算时间*//*
         "ustime":"Mar 11 4:00PM EDT",		*//*美国当前更新时间*//*
         "chtime":"2013-03-12 07:58:04"		*//*中国时间*/
+
+
+/*列表名称对应*//*
+ "cname": "苹果公司", *//*名称*//*
+         "category": "计算机", *//*行业版块*//*
+         "symbol": "AAPL", *//*代码*//*
+         "price": "126.52", *//*最新价*//*
+         "diff": "1.09", *//*涨跌额*//*
+         "chg": "0.87", *//*涨跌幅*//*
+         "preclose": "125.42", *//*昨收*//*
+         "open": "126.90", *//*今开*//*
+         "high": "126.94", *//*最高价*//*
+         "low": "125.99", *//*最低价*//*
+         "amplitude": "0.76%", *//*振幅*//*
+         "volume": "30215693", *//*成交量*//*
+         "mktcap": "741843599071", *//*市值*//*
+         "market": "NASDAQ" *//*上市地*/
 public class stock {
 
     //股票代码
@@ -41,7 +58,7 @@ public class stock {
     //股票当前颜色
     private String color;
 
-    
+
 
     //getter setter
     public String getLastestpri() {
@@ -69,8 +86,13 @@ public class stock {
     }
 
     public String getColor() {
-
-        return color;
+        double colorvalue =  Double.parseDouble(getLimit().toString());
+        //涨是绿色
+        if(colorvalue>0){
+            return "green";
+        }
+        //跌是红色
+        else return "red";
     }
 
     public String getGid() {
