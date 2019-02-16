@@ -11,10 +11,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.team3.ms.mystocks.entity.stock;
 import net.sf.json.JSONObject;
-public class Stock_API {
+public class Jvhe_API {
 
     public static final String DEF_CHATSET = "UTF-8";
     public static final int DEF_CONN_TIMEOUT = 30000;
@@ -158,7 +159,7 @@ public class Stock_API {
 
     public static void main(String[] args) {
       /*  //解析单照顾单只股票
-        Stock_API c = new Stock_API();
+        Jvhe_API c = new Jvhe_API();
         stock res = c.getStock("aapl");
         if(res!= null) {
             System.out.println("+++++++++++++");
@@ -172,7 +173,7 @@ public class Stock_API {
             System.out.println("null");
         }*/
         //解析股票列表
-        Stock_API d = new Stock_API();
+        Jvhe_API d = new Jvhe_API();
         ArrayList<stock> res = d.getStockList();
         for(int i =0;i<res.size();i++){
             System.out.println(res.get(i).getGid());
