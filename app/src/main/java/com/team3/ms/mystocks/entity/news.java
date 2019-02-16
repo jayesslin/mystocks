@@ -8,6 +8,9 @@ public class news {
     private String news_url;
     private String publishedAt;
     private String content;
+
+
+
     public String getTitle() {
         return title;
     }

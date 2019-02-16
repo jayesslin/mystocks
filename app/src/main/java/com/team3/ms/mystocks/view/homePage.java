@@ -52,7 +52,8 @@ public class homePage extends AppCompatActivity {
                 String lastestpri =data.getString("lastestpri");
                 String uppic =data.getString("uppic");
                 String limit =data.getString("limit");
-                return new stock(gid,openpri, lastestpri,uppic,limit);
+                String ustime =data.getString("ustime");
+                return new stock(gid,openpri, lastestpri,uppic,limit,ustime);
             } catch (JSONException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -64,10 +65,10 @@ public class homePage extends AppCompatActivity {
         protected void onPostExecute(stock st) {
 
                 Log.i("***********","stock_gid:"+ st.getGid());
-                Log.i("***********","new1_title:"+st.getOpenpri());
-                Log.i("***********","new1_title:"+st.getLastestpri());
-                Log.i("***********","new1_title:"+st.getColor());
-
+                Log.i("***********","开盘价:"+st.getOpenpri());
+                Log.i("***********","更新价格:"+st.getLastestpri());
+                Log.i("***********","颜色："+st.getColor());
+                Log.i("***********","时间："+st.getUstime());
 
         }
 

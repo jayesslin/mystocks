@@ -56,6 +56,15 @@ public class stock {
     private String limit;
     //股票当前颜色
     private String color;
+    private String ustime;
+
+    public String getUstime() {
+        return ustime;
+    }
+
+    public void setUstime(String ustime) {
+        this.ustime = ustime;
+    }
 
 
 
@@ -113,12 +122,13 @@ public class stock {
     public stock(){
 
     }
-    public stock(String gid, String openpri, String lastestpri,String uppic,String limit){
+    public stock(String gid, String openpri, String lastestpri,String uppic,String limit,String ustime){
         this.gid=gid;
         this.openpri=openpri;
         this.lastestpri=lastestpri;
         this.uppic=uppic;
         this.limit=limit;
+        this.ustime=ustime;
         this.color=getColor();
     }
 }
