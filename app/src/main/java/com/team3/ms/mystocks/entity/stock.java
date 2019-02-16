@@ -1,6 +1,5 @@
 package com.team3.ms.mystocks.entity;
-/*
-"gid":"aapl",				*//*股票编号*//*
+/*      "gid":"aapl",				*//*股票编号*//*
         "name":"苹果",				*//*股票名称*//*
         "lastestpri":"437.87",			*//*最新价*//*
         "openpri":"429.70",			*//*开盘价*//*
@@ -29,7 +28,7 @@ package com.team3.ms.mystocks.entity;
 
 
 /*列表名称对应*//*
- "cname": "苹果公司", *//*名称*//*
+         "cname": "苹果公司", *//*名称*//*
          "category": "计算机", *//*行业版块*//*
          "symbol": "AAPL", *//*代码*//*
          "price": "126.52", *//*最新价*//*
@@ -109,5 +108,17 @@ public class stock {
 
     public void setOpenpri(String openpri) {
         this.openpri = openpri;
+    }
+
+    public stock(){
+
+    }
+    public stock(String gid, String openpri, String lastestpri,String uppic,String limit){
+        this.gid=gid;
+        this.openpri=openpri;
+        this.lastestpri=lastestpri;
+        this.uppic=uppic;
+        this.limit=limit;
+        this.color=getColor();
     }
 }

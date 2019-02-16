@@ -1,3 +1,4 @@
+/*
 package com.team3.ms.mystocks.tools;
 
 import java.io.BufferedReader;
@@ -13,9 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import com.team3.ms.mystocks.entity.stock;
-import net.sf.json.JSONObject;
-public class Stock_API {
 
+public class Stock_API {
     public static final String DEF_CHATSET = "UTF-8";
     public static final int DEF_CONN_TIMEOUT = 30000;
     public static final int DEF_READ_TIMEOUT = 30000;
@@ -157,7 +157,7 @@ public class Stock_API {
 
 
     public static void main(String[] args) {
-      /*  //解析单照顾单只股票
+        //解析单照顾单只股票
         Stock_API c = new Stock_API();
         stock res = c.getStock("aapl");
         if(res!= null) {
@@ -170,7 +170,7 @@ public class Stock_API {
             System.out.println(res.getColor());
         }else {
             System.out.println("null");
-        }*/
+        }
         //解析股票列表
         Stock_API d = new Stock_API();
         ArrayList<stock> res = d.getStockList();
@@ -186,3 +186,4 @@ public class Stock_API {
     }
 
 }
+*/

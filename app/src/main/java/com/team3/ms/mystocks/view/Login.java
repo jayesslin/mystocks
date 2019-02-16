@@ -5,17 +5,30 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.team3.ms.mystocks.DBmgr.dbmanage;
+import com.team3.ms.mystocks.entity.news;
 import com.team3.ms.mystocks.entity.user;
 import com.team3.ms.mystocks.controller.usercontroller;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.tools.News_API;
+import com.team3.ms.mystocks.tools.News_provider;
+import com.team3.ms.mystocks.tools.ThreadforNet;
 
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import android.os.AsyncTask;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Login extends AppCompatActivity {
     private EditText accountEditText,passwordEditText;
@@ -29,6 +42,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         dbMgr= new dbmanage(Login.this,"MyStocks.db",null,1);
+
+
+         /*AsyncTask *//*test for news*/
+        new GetNewsData().execute();
+
+
+
+
         db=dbMgr.getWritableDatabase();
         accountEditText = (EditText)findViewById(R.id.accountEditText);
         passwordEditText = (EditText)findViewById(R.id.passwordEditText);
@@ -77,5 +98,61 @@ public class Login extends AppCompatActivity {
         });
 
     }
+
+    /*async*/
+    class GetNewsData extends AsyncTask<Void,Void,ArrayList<news>> {
+
+        @Override
+        protected ArrayList<news> doInBackground(Void... params) {
+            News_provider b = new News_provider();
+            ArrayList<news> list= new ArrayList<news>();
+            try {
+                String res = b.getNews();
+                String result = "";
+                JSONObject object = new JSONObject(res);
+                // JSONObject object =  new JSONObject(result);
+                //System.out.println(object.get("status"));
+                //Log.i("*******", "res ：" + object.getString("status").toString());
+                JSONArray articles = object.optJSONArray("articles");
+               // Log.i("*******", "res1 ：" + articles);
+                for (int i = 0; i < articles.length(); i++) {
+                    JSONObject jsonObject = (JSONObject) articles.get(i);
+                    String title = jsonObject.getString("title");
+                   // Log.i("*******", "res1 ：" + title);
+                    String news_url = jsonObject.getString("url");
+                   // Log.i("*******", "res1 ：" + news_url);
+                    String publishedAt = jsonObject.getString("publishedAt");
+                    String content = jsonObject.getString("content");
+                   // news n = new news();
+                    news n = new news(title, news_url, publishedAt, content);
+                   // Log.i("********", "插入标题");
+                   // n.setTitle(title);
+                    list.add(n);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return list;
+        }
+        @Override
+        protected void onPostExecute(ArrayList<news> newslist) {
+            for (int i =0; i<newslist.size();i++){
+                String title = newslist.get(i).getTitle();
+                String url = newslist.get(i).getNews_url();
+                String publishAt =  newslist.get(i).getPublishedAt();
+                String content = newslist.get(i).getContent();
+                Log.i("***********","new1_title:"+title);
+                Log.i("***********","new1_title:"+url);
+                Log.i("***********","new1_title:"+publishAt);
+                Log.i("***********","new1_title:"+content);
+            }
+            accountEditText.setText(newslist.get(0).getTitle());
+        }
+
+    }
+
 
 }
