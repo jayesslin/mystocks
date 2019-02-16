@@ -68,18 +68,6 @@ public class News_API {
         }
         return rs;
     }
-    public static void main(String[] args) {
- /*       News_API c = new News_API();
-        ArrayList<news> res = new ArrayList<>();*/
-        //res = c.getNews();
-        /*for(int i=0;i<res.size();i++){
-            System.out.println(res.get(i).getTitle());
-            System.out.println(res.get(i).getUrl());
-            System.out.println(res.get(i).getPublishedAt());
-            System.out.println(res.get(i).getContent());
-            System.out.println("=================");
-            System.out.println("=================");
-        }*/
-    }
+
 
 }
