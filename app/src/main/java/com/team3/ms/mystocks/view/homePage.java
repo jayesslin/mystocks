@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.team3.ms.mystocks.R;
-import com.team3.ms.mystocks.entity.news;
 import com.team3.ms.mystocks.entity.stock;
-import com.team3.ms.mystocks.tools.News_provider;
 import com.team3.ms.mystocks.tools.Stocks_provider;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class homePage extends AppCompatActivity {
 
@@ -38,7 +34,7 @@ public class homePage extends AppCompatActivity {
             Stocks_provider sp = new Stocks_provider();
             stock stock = new stock();
             try {
-                String res = sp.getStok(params[0]);
+                String res = sp.getStock(params[0]);
                 String result = "";
                 JSONObject object = new JSONObject(res);
                 // JSONObject object =  new JSONObject(result);

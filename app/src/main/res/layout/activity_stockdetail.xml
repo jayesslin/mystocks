@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/name1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/symbol1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/laststpri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/maxpri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/minpri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/limit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/traAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/EPS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/divident"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/afterpic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/afterlimit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+    <TextView
+        android:id="@+id/ustime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:gravity="center_horizontal"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:text="@string/textview" />
+
+
+
+</LinearLayout>
+

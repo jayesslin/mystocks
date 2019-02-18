@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
 
 
          /*AsyncTask *//*test for news*/
-        new GetNewsData().execute();
+
 
 
 

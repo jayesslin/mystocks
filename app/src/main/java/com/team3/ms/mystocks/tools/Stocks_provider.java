@@ -1,5 +1,14 @@
 package com.team3.ms.mystocks.tools;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.team3.ms.mystocks.entity.stock;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -18,7 +27,9 @@ public class Stocks_provider {
     public static final int DEF_READ_TIMEOUT = 30000;
     public static String userAgent =  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
     public static final String APPKEY ="b02affef6f4f8d0f1e639f407f9fe7b8";
-    public String getStok(String gid) throws Exception {
+
+
+    public String getStock(String gid) throws Exception {
         String url ="http://web.juhe.cn:8080/finance/stock/usa";//请求接口地址
         Map params = new HashMap();//请求参数
         params.put("gid",gid);//股票代码，如：aapl 为“苹果公司”的股票代码
@@ -27,6 +38,67 @@ public class Stocks_provider {
         res = net(url, params,"GET");
         return res;
     }
+
+
+
+    public  String getRequest(String gid){
+        String result =null;
+        JSONObject object=null;
+        String url ="http://web.juhe.cn:8080/finance/stock/usa";//请求接口地址
+        Map params = new HashMap();//请求参数
+        params.put("gid",gid);//股票代码，如：aapl 为“苹果公司”的股票代码
+        params.put("key",APPKEY);//APP Key
+
+        try {
+            result =net(url, params, "GET");
+
+
+            return result;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public  String getRequest5() throws Exception{
+        String result = null;
+
+        String url = "http://web.juhe.cn:8080/finance/stock/usaall";//请求接口地址
+        Map params = new HashMap();//请求参数
+        params.put("key", APPKEY);//您申请的APPKEY
+        params.put("page", "1");//第几页,每页20条数据,默认第1页
+
+        result = net(url, params, "GET");
+
+
+        return result;
+
+
+
+           /* JSONObject object1=new JSONObject(result);
+            System.out.print(object1);
+            JSONArray jsonArray=object1.getJSONArray("gid");
+            System.out.print(jsonArray);
+            System.out.printf("test");*/
+           // JSONObject mdata=(JSONObject) jsonArray.get(0);
+           // for (int i=0;i<mdata.length();i++){
+             //   JSONObject jsonObject= mdata.getJSONObject(i);
+
+           // }
+
+
+    }
+
+
+
+
+
+
+
+
     public static String net(String strUrl, Map params,String method) throws Exception {
         HttpURLConnection conn = null;
         BufferedReader reader = null;
@@ -88,4 +160,23 @@ public class Stocks_provider {
         }
         return sb.toString();
     }
+
+
+    public static void main(String[] args) throws Exception{
+
+        Stocks_provider sp=new Stocks_provider();
+
+        System.out.print(sp.getRequest("aapl"));
+
+
+
+
+
+
+
+
+    }
+
 }
+
+
