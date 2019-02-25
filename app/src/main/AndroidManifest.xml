@@ -31,6 +31,7 @@
         </activity>
         <activity android:name=".view.Registrationpage" />
         <activity android:name=".view.Changepasswordpage" />
+        <activity android:name=".view.homePage"/>
         <activity android:name=".view.homePage_orin"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

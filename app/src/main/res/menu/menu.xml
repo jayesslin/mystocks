@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/youxiang"
+            android:title="Function One">
+
+        </item>
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/youxiang"
+            android:title="Function Two">
+
+        </item>
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/youxiang"
+            android:title="Function Three">
+
+        </item>
+        <item
+            android:id="@+id/item4"
+            android:icon="@drawable/youxiang"
+            android:title="Function Four">
+
+        </item>
+    </group>
+
+</menu>

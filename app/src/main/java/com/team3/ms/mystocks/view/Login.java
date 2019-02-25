@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
                 else if (uc.verifes(username,pw,dbMgr)){
                     System.out.println("hi");
                     Toast.makeText(Login.this,"Success",(int)2000).show();
-                    Intent s = new Intent(getApplicationContext(), homePage_orin.class);
+                    Intent s = new Intent(getApplicationContext(), homePage.class);
 //                    s.putExtra("extra_data",username);
 //                    s.putExtra("extra_password",pw);
                     startActivity(s);
