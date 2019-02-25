@@ -15,22 +15,10 @@
         <activity
             android:name=".view.stock_detail"
             android:label="@string/title_activity_stockdetail">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <!-- <activity android:name=".view.Registrationpage"></activity> -->
-            <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
     </activity>
         <activity android:name=".view.Allstocks">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <!-- <activity android:name=".view.Registrationpage"></activity> -->
-                <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.Login">
             <intent-filter>
