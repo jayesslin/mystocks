@@ -42,106 +42,79 @@ package com.team3.ms.mystocks.entity;
          "volume": "30215693", *//*成交量*//*
          "mktcap": "741843599071", *//*市值*//*
          "market": "NASDAQ" *//*上市地*/
-public class stock {
+public class stockdetail {
     private String name;
-
-    //股票代码
     private String gid;
-    //开盘价
-    private String openpri;
-    //最新价
     private String lastestpri;
-    //涨跌额
-    private String uppic;
-    //涨跌幅
+    private String maxpri;
+    private String minpri;
     private String limit;
-    //股票当前颜色
-    private String color;
+    private String traAmount;
+    private String EPS;
+    private String divident;
+    private String afterpic;
+    private String afterlimit;
     private String ustime;
-
 
 
     public String getname() {
         return name;
     }
-    public void setname(String name) {
-        this.name = name;
+    public String getgid() {
+        return gid;
     }
-
-
-    public String getLimit() {
-        return limit;
-    }
-
-    public void setLimit(String limit) {
-        this.limit = limit;
-    }
-    public String getLastestpri() {
+    public String getlastestpri() {
         return lastestpri;
     }
-
-    public void setLastestpri(String lastestpri) {
-        this.lastestpri = lastestpri;
+    public String getmaxpri() {
+        return maxpri;
     }
-
-
-
-    //getter setter
-//——————————————————————————————————————————
-    public String getUppic() {
-        return uppic;
+    public String getminpri() {
+        return minpri;
     }
-
-    public void setUppic(String uppic) {
-        this.uppic = uppic;
+    public String getlimit() {
+        return limit;
     }
-
-    public String getUstime() {
+    public String gettraAmount() {
+        return traAmount;
+    }
+    public String getEPS() {
+        return EPS;
+    }
+    public String getdivident() {
+        return divident;
+    }
+    public String getafterpic() {
+        return afterpic;
+    }
+    public String getafterlimit() {
+        return afterlimit;
+    }
+    public String getustime() {
         return ustime;
     }
 
-    public void setUstime(String ustime) {
-        this.ustime = ustime;
-    }
-
-    public String getColor() {
-        double colorvalue =  Double.parseDouble(getLimit().toString());
-        //涨是绿色
-        if(colorvalue>0){
-            return "green";
-        }
-        //跌是红色
-        else return "red";
-    }
-
-    public String getGid() {
-        return gid;
-    }
-
-    public void setGid(String gid) {
-        this.gid = gid;
-    }
-
-    public String getOpenpri() {
-        return openpri;
-    }
-
-    public void setOpenpri(String openpri) {
-        this.openpri = openpri;
-    }
-
-    public stock(){
-
-    }
-    public stock(String gid,String openpri, String lastestpri, String uppic, String limit, String ustime){
+    public stockdetail(String name, String gid,String lastestpri, String maxpri, String minpri,
+                       String limit, String traAmount, String EPS,String divident, String afterpic, String afterlimit, String ustime)
+    {
+        this.name=name;
         this.gid=gid;
-        this.openpri=openpri;
         this.lastestpri=lastestpri;
-        this.uppic=uppic;
+        this.maxpri=maxpri;
+        this.minpri=minpri;
         this.limit=limit;
+        this.traAmount=traAmount;
+        this.EPS=EPS;
+        this.divident=divident;
+        this.afterpic=afterpic;
+        this.afterlimit=afterlimit;
         this.ustime=ustime;
 
     }
+    public stockdetail(){};
+
+
+
 
 
 }

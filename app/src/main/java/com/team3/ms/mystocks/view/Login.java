@@ -17,11 +17,8 @@ import com.team3.ms.mystocks.entity.user;
 import com.team3.ms.mystocks.controller.usercontroller;
 
 import com.team3.ms.mystocks.R;
-import com.team3.ms.mystocks.tools.News_API;
 import com.team3.ms.mystocks.tools.News_provider;
-import com.team3.ms.mystocks.tools.ThreadforNet;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.os.AsyncTask;
@@ -45,7 +42,7 @@ public class Login extends AppCompatActivity {
 
 
          /*AsyncTask *//*test for news*/
-        new GetNewsData().execute();
+
 
 
 
@@ -69,7 +66,7 @@ public class Login extends AppCompatActivity {
                 else if (uc.verifes(username,pw,dbMgr)){
                     System.out.println("hi");
                     Toast.makeText(Login.this,"Success",(int)2000).show();
-                    Intent s = new Intent(getApplicationContext(),homePage.class);
+                    Intent s = new Intent(getApplicationContext(), homePage_orin.class);
 //                    s.putExtra("extra_data",username);
 //                    s.putExtra("extra_password",pw);
                     startActivity(s);
