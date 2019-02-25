@@ -13,12 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class homePage extends AppCompatActivity {
+public class homePage_orin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_home_orin_page);
 
         /*AsyncTask *//*test for stocks*/
         String st = "aapl";
