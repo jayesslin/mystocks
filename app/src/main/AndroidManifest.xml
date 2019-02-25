@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.team3.ms.mystocks">
 
+<<<<<<< HEAD
 <application
     android:networkSecurityConfig="@xml/network_security_config"
     android:allowBackup="true"
@@ -24,4 +25,58 @@ package="com.team3.ms.mystocks">
     <activity android:name=".view.homePage_orin"></activity>
 </application>
 <uses-permission android:name="android.permission.INTERNET" />
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".view.stock_detail"
+            android:label="@string/title_activity_stockdetail">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <!-- <activity android:name=".view.Registrationpage"></activity> -->
+            <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity android:name=".view.Allstocks">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- <activity android:name=".view.Registrationpage"></activity> -->
+                <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- <activity android:name=".view.Registrationpage"></activity> -->
+                <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.Registrationpage" />
+        <activity android:name=".view.Changepasswordpage" />
+        <activity android:name=".view.homePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- <activity android:name=".view.Registrationpage"></activity> -->
+                <!-- <activity android:name=".view.Changepasswordpage"></activity> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+>>>>>>> 21e5eca1ad6bb278c6b1df1de63efeceb75f95e6
 </manifest>
