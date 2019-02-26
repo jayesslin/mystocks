@@ -27,7 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Allstocks" />
+        <activity android:name=".view.Allstocks">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".view.Registrationpage" />
         <activity android:name=".view.Changepasswordpage" />
         <activity android:name=".view.homePage"/>

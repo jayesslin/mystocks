@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.team3.ms.mystocks.R;
 import com.team3.ms.mystocks.entity.stocklist;
@@ -23,31 +23,23 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Allstocks extends AppCompatActivity {
+public class search_res extends AppCompatActivity {
+    private ListView searchList;
 
-    private ListView list_stockview;
-    private Context mContext;
-    private List<stocklist> stock_list=new ArrayList<>();
     private stockAdapter mAdapter=null;
+    private Context resContext;
     private Handler handler;
+    private List<stocklist> stock_list=new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.allstocks);
-        list_stockview=(ListView)findViewById(R.id.stockslist);
-        mContext=Allstocks.this;
-        get();
-        TextView main_home = (TextView)findViewById(R.id.main_home);
-        main_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ss11 = new Intent(getApplicationContext(),homePage.class);
-                startActivity(ss11);
-            }
-        });
-
+        setContentView(R.layout.activity_search_res);
+        String symbol=getIntent().getStringExtra("symbol");
+        get_list(symbol);
+        resContext = search_res.this;
+        searchList = (ListView)findViewById(R.id.res_list);
         handler =new Handler(){
             public void handleMessage(Message msg){
                 if(msg.what == 1){
@@ -56,79 +48,67 @@ public class Allstocks extends AppCompatActivity {
                     /*for (int i = 0 ; i < stock_list.size() ; i++)
                         Log.d("value is" , stock_list.get(i).toString());*/
 
-                    mAdapter=new stockAdapter(stock_list,mContext);
-                    list_stockview.setAdapter(mAdapter);
-                    list_stockview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    mAdapter=new stockAdapter(stock_list,resContext);
+                    searchList.setAdapter(mAdapter);
+                    searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             stocklist a=stock_list.get(position);
-                            Intent intent=new Intent(Allstocks.this, stock_detail.class);
+                            Intent intent=new Intent(search_res.this, stock_detail.class);
                             intent.putExtra("gid",a.getname());
                             startActivity(intent);
 
                         }
                     });
 
-
-
-
-
+                }else{
+                    Toast.makeText(search_res.this,"The symbol is wrong!!!",(int)2000).show();
                 }
             }
 
         };
-
-
-
-       /* String[] strs={"1","2","3","4"};
-
-        ArrayAdapter<String> stockadapter=new ArrayAdapter<>(this,R.layout.stock_item,R.id.stocktitle,strs);
-        list_stock.setAdapter(stockadapter);*/
-
     }
 
-
-
-    private void get(){
+    private void get_list(final String search_text){
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
 
                     String result=sp.getRequest5();
+                    System.out.println("my11" + search_text);
 
                     JSONObject object1=new JSONObject(result);
                     JSONObject object2=object1.getJSONObject("result");
                     JSONArray array1=object2.getJSONArray("data");
+                    int i = 0;
+                    boolean flag = false;
+                    while(flag == false && i < 20){
 
-                    for(int i=0;i<20;i++){
                         JSONObject a=array1.getJSONObject(i);
-                        String name=a.getString("cname");
                         String gid =a.getString("symbol");
-                        String openpri =a.getString("open");
-                        String lastestpri =a.getString("price");
-                        String uppic =a.getString("high");
-                        String limit =a.getString("chg");
+                        System.out.println("my" + gid);
+                        if(search_text.equals(gid)){
+                            System.out.println("my" + i);
+                            String name=a.getString("cname");
 
-                        stocklist stock=new stocklist(gid,openpri,lastestpri,limit);
-
-
-                        stock_list.add(stock);
-
-
-
-
-
+                            String openpri =a.getString("open");
+                            String lastestpri =a.getString("price");
+                            String uppic =a.getString("high");
+                            String limit =a.getString("chg");
+                            stocklist stock=new stocklist(name,gid,lastestpri,limit);
+                            stock_list.add(stock);
+                            System.out.println(stock);
+                            flag = true;
+                            Message msg = new Message();
+                            msg.what = 1;
+                            handler.sendMessage(msg);
+                        }else {
+                            i++;
+                        }
 
                     }
-
-                    Message msg = new Message();
-                    msg.what = 1;
-                    handler.sendMessage(msg);
-
-
-
 
 
                 }
@@ -141,9 +121,9 @@ public class Allstocks extends AppCompatActivity {
                 }
 
             }
-        }).start();}
-
-
-
-
+        }).start();
     }
+
+
+
+}
