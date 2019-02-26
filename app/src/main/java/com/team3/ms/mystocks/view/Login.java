@@ -107,24 +107,20 @@ public class Login extends AppCompatActivity {
                 String res = b.getNews();
                 String result = "";
                 JSONObject object = new JSONObject(res);
-                // JSONObject object =  new JSONObject(result);
-                //System.out.println(object.get("status"));
-                //Log.i("*******", "res ：" + object.getString("status").toString());
                 JSONArray articles = object.optJSONArray("articles");
-               // Log.i("*******", "res1 ：" + articles);
+
                 for (int i = 0; i < articles.length(); i++) {
                     JSONObject jsonObject = (JSONObject) articles.get(i);
                     String title = jsonObject.getString("title");
-                   // Log.i("*******", "res1 ：" + title);
+
                     String news_url = jsonObject.getString("url");
-                   // Log.i("*******", "res1 ：" + news_url);
+
                     String publishedAt = jsonObject.getString("publishedAt");
                     String content = jsonObject.getString("content");
                     String urlToImage= jsonObject.getString("urlToImage");
-                   // news n = new news();
+
                     news n = new news(title, news_url, publishedAt, content, urlToImage );
-                   // Log.i("********", "插入标题");
-                   // n.setTitle(title);
+
                     list.add(n);
                 }
 

@@ -1,6 +1,7 @@
 package com.team3.ms.mystocks.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -80,10 +81,18 @@ public class stock_detail extends AppCompatActivity {
                     txt_laststpri.setText(stock_detaillist.get(0).getlastestpri());
                     txt_maxpri.setText(stock_detaillist.get(0).getmaxpri());
                     txt_minpri.setText(stock_detaillist.get(0).getminpri());
+                    if(stock_detaillist.get(0).getColor().equals("red")){
+                        txt_limit.setTextColor(android.graphics.Color.RED);
+                        txt_divident.setTextColor(android.graphics.Color.RED);
+                    }else{
+                        txt_limit.setTextColor(Color.GREEN);
+                        txt_divident.setTextColor(Color.GREEN);
+                    }
                     txt_limit.setText(stock_detaillist.get(0).getlimit());
                     txt_traAmount.setText(stock_detaillist.get(0).gettraAmount());
                     txt_EPS.setText(stock_detaillist.get(0).getEPS());
-                    txt_divident.setText(stock_detaillist.get(0).getdivident());
+
+                    txt_divident.setText(stock_detaillist.get(0).getUppic());
                     txt_afterpic.setText(stock_detaillist.get(0).getafterpic());
                     txt_afterlimit.setText(stock_detaillist.get(0).getafterlimit());
                     txt_ustime.setText(stock_detaillist.get(0).getustime());
@@ -91,6 +100,7 @@ public class stock_detail extends AppCompatActivity {
 
 
                 }
+
             }
 
         };
@@ -132,12 +142,13 @@ public class stock_detail extends AppCompatActivity {
                             String limit=object3.getString("limit");
                             String traAmount=object3.getString("traAmount");
                             String EPS=object3.getString("EPS");
-                            String divident=object3.getString("divident");
+                            //更改， 股息改为涨跌额
+                            String uppic=object3.getString("uppic");
                             String afterpic=object3.getString("afterpic");
                             String afterlimt=object3.getString("afterlimit");
                             String ustime=object3.getString("ustime");
 
-                            stockdetail stock = new stockdetail(name,gid,lastestpri,maxpri,minpri,limit,traAmount,EPS,divident,afterpic,afterlimt,ustime);
+                            stockdetail stock = new stockdetail(name,gid,lastestpri,maxpri,minpri,limit,traAmount,EPS,uppic,afterpic,afterlimt,ustime);
 
                     stock_detaillist.add(stock);
 

@@ -55,8 +55,26 @@ public class stockdetail {
     private String afterpic;
     private String afterlimit;
     private String ustime;
+    private  String uppic;
+    public String getUppic() {
+        return uppic;
+    }
+
+    public void setUppic(String uppic) {
+        this.uppic = uppic;
+    }
 
 
+    public String getColor() {
+        double colorvalue =  Double.parseDouble(getlimit().toString());
+
+        //涨是绿色
+        if(colorvalue>0){
+            return "green";
+        }
+        //跌是红色
+        else return "red";
+    }
     public String getname() {
         return name;
     }
@@ -95,7 +113,7 @@ public class stockdetail {
     }
 
     public stockdetail(String name, String gid,String lastestpri, String maxpri, String minpri,
-                       String limit, String traAmount, String EPS,String divident, String afterpic, String afterlimit, String ustime)
+                       String limit, String traAmount, String EPS,String uppic, String afterpic, String afterlimit, String ustime)
     {
         this.name=name;
         this.gid=gid;
@@ -105,7 +123,7 @@ public class stockdetail {
         this.limit=limit;
         this.traAmount=traAmount;
         this.EPS=EPS;
-        this.divident=divident;
+        this.uppic=uppic;
         this.afterpic=afterpic;
         this.afterlimit=afterlimit;
         this.ustime=ustime;
