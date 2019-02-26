@@ -3,6 +3,15 @@ package com.team3.ms.mystocks.entity;
 public class IconBean {
     public String IconName;
     public String Icon_Image_Id;
+    public String new_url;
+    public String getNew_url() {
+        return new_url;
+    }
+
+    public void setNew_url(String new_url) {
+        this.new_url = new_url;
+    }
+
 
     public String getIconName() {
         return IconName;

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class homePage extends AppCompatActivity {
     private ListView lv;
     private TextView main_home,Stock;
     private ImageView search_bt;
-
+    private ArrayList<String> news_webview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,11 +117,12 @@ public class homePage extends AppCompatActivity {
             return list;
         }
         @Override
-        protected void onPostExecute(ArrayList<news> newslist) {
+        protected void onPostExecute(final ArrayList<news> newslist) {
             for (int i =0; i<newslist.size();i++){
 
                 IconBean Add = new IconBean(newslist.get(i).getTitle(),newslist.get(i).getUrlToImage());
                 /*IconBean Add = new IconBean(newslist.get(i).getTitle(),R.drawable.regi_background);*/
+                Add.setNew_url(newslist.get(i).getNews_url());
                 mIconBeenList.add(Add);
 
 
@@ -139,6 +141,29 @@ public class homePage extends AppCompatActivity {
                 Log.i("***********","new1_pic_url:"+ urlToImage );
             }
             lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    news a=newslist.get(position);
+                    Intent intent=new Intent(homePage.this, new_detail_page.class);
+                    intent.putExtra("n_url",a.getNews_url());
+                    startActivity(intent);
+                }
+            });
+           /* mAdapter=new stockAdapter(stock_list,mContext);
+            list_stockview.setAdapter(mAdapter);
+            list_stockview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    stocklist a=stock_list.get(position);
+                    Intent intent=new Intent(Allstocks.this, stock_detail.class);
+                    intent.putExtra("gid",a.getname());
+                    startActivity(intent);
+
+                }
+            });*/
+
         }
 
     }
