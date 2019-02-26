@@ -1,5 +1,6 @@
 package com.team3.ms.mystocks.tools;
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.BaseAdapter;
 
 import java.util.LinkedList;
@@ -49,6 +50,15 @@ return stockList.size();
         txt_title.setText(stockList.get(position).getname());
         txt_Lastpri.setText(stockList.get(position).getLastestpri());
         txt_limit.setText(stockList.get(position).getLimit());
+        if(stockList.get(position).getColor().equals("red")){
+            txt_limit.setTextColor(android.graphics.Color.RED);
+            txt_Lastpri.setTextColor(android.graphics.Color.RED);
+        }else{
+            txt_limit.setTextColor(Color.GREEN);
+            txt_Lastpri.setTextColor(Color.GREEN);
+        }
+
+
         txt_symbol.setText(stockList.get(position).getGid());
 
 

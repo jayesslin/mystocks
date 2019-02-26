@@ -40,7 +40,16 @@ public class stocklist {
         this.lastestpri = lastestpri;
     }
 
+    public String getColor() {
+        double colorvalue =  Double.parseDouble(getLimit().toString());
 
+        //涨是绿色
+        if(colorvalue>0){
+            return "green";
+        }
+        //跌是红色
+        else return "red";
+    }
 
 
     public String getGid() {
