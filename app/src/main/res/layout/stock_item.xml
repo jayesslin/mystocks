@@ -3,25 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/stocktitle"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
 
-        android:gravity="center_horizontal"
+
         android:textColor="#000"
         android:textSize="18sp"
      android:text="@string/textview" />
+
     <TextView
         android:id="@+id/stocksym"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -32,19 +33,22 @@
         android:textColor="#000"
         android:textSize="18sp"
         android:text="@string/textview" />
+
     <TextView
-        android:id="@+id/stockLastpri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
+    android:id="@+id/stockLastpri"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
 
-        android:gravity="center_horizontal"
-        android:textColor="#000"
-        android:textSize="18sp"
-        android:text="@string/textview" />
+    android:gravity="center_horizontal"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:text="@string/textview" />
+
+
     <TextView
         android:id="@+id/stocklimit"
         android:layout_width="match_parent"
@@ -57,7 +61,7 @@
         android:gravity="center_horizontal"
         android:textColor="#000"
         android:textSize="18sp"
-        android:text="@string/textview" />
+        android:text="123" />
 
 
 

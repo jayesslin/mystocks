@@ -53,7 +53,7 @@ public class stocklist {
 
 
 
-    public stocklist(String gid,String name,String lastestpri, String limit){
+    public stocklist(String name,String gid,String lastestpri, String limit){
         this.gid=gid;
         this.name=name;
 

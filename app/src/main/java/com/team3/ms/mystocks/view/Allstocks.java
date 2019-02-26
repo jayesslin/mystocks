@@ -111,7 +111,7 @@ public class Allstocks extends AppCompatActivity {
                         String uppic =a.getString("high");
                         String limit =a.getString("chg");
 
-                        stocklist stock=new stocklist(name,gid,lastestpri,limit);
+                        stocklist stock=new stocklist(gid,openpri,lastestpri,limit);
 
 
                         stock_list.add(stock);
