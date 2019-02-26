@@ -16,9 +16,7 @@
             android:label="@string/title_activity_stockdetail">
 
     </activity>
-        <activity android:name=".view.Allstocks">
 
-        </activity>
 
         <activity android:name=".view.Login">
             <intent-filter>
@@ -29,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.Allstocks" />
         <activity android:name=".view.Registrationpage" />
         <activity android:name=".view.Changepasswordpage" />
         <activity android:name=".view.homePage"/>

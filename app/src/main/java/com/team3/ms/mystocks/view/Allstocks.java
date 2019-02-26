@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.team3.ms.mystocks.R;
 import com.team3.ms.mystocks.entity.stocklist;
@@ -38,6 +39,14 @@ public class Allstocks extends AppCompatActivity {
         list_stockview=(ListView)findViewById(R.id.stockslist);
         mContext=Allstocks.this;
         get();
+        TextView main_home = (TextView)findViewById(R.id.main_home);
+        main_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(ss11);
+            }
+        });
 
         handler =new Handler(){
             public void handleMessage(Message msg){
