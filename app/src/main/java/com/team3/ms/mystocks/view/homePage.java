@@ -30,14 +30,15 @@ public class homePage extends AppCompatActivity {
         initData();
         lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
 
-/*        Stock = (TextView)findViewById(R.id.Stock);
+        Stock = (TextView)findViewById(R.id.Stock);
         Stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ss11 = new Intent(getApplicationContext(),stockList.class);
+                Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
                 startActivity(ss11);
             }
         });
+        /*
         search_bt = (ImageView)findViewById(R.id.search_bt);
         search_bt.setOnClickListener(new View.OnClickListener() {
             @Override

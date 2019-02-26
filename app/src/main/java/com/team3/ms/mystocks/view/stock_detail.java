@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.team3.ms.mystocks.R;
@@ -42,6 +43,14 @@ public class stock_detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stockdetail);
+        Button backButton = (Button)findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s2 = new Intent(getApplicationContext(),Allstocks.class);
+                startActivity(s2);
+            }
+        });
         gid=getIntent().getStringExtra("gid");
 
 

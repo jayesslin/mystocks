@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/stockslistlayout"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".view.Allstocks">
 
-
-
-    <ListView
-
+    <include
+        layout="@layout/title1"/>
+    <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/stockslistlayout"
         android:layout_height="match_parent"
-        android:id="@+id/stockslist"
-        android:dividerHeight="8dp">
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="68dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ListView
 
-    </ListView>
-</LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/stockslist"
+            android:dividerHeight="8dp">
+
+        </ListView>
+    </LinearLayout>
+    <android.support.design.widget.NavigationView
+        android:layout_gravity="left"
+        app:headerLayout="@layout/side_menu_head"
+        app:menu="@menu/menu"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
