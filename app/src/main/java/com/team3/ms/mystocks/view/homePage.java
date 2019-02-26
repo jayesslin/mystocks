@@ -51,15 +51,15 @@ public class homePage extends AppCompatActivity {
                 startActivity(ss11);
             }
         });
-        /*
+
         search_bt = (ImageView)findViewById(R.id.search_bt);
         search_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sss11 = new Intent(getApplicationContext(),stockList.class);
+                Intent sss11 = new Intent(getApplicationContext(),Inquery.class);
                 startActivity(sss11);
             }
-        });*/
+        });
     }
     /*private void initData(){
         IconBean Add = new IconBean("ADD",R.drawable.regi_background);
