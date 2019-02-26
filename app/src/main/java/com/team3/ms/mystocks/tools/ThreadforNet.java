@@ -50,7 +50,8 @@ public class ThreadforNet extends Thread {
                 Log.i("*******", "res1 ：" + news_url);
                 String publishedAt = jsonObject.getString("publishedAt");
                 String content = jsonObject.getString("content");
-                news n = new news(title,news_url,publishedAt,content);
+                String urlToImage = jsonObject.getString("urlToImage");
+                news n = new news(title,news_url,publishedAt,content,urlToImage);
                 Log.i("*******", "news ：" + n.getNews());
             }
         } catch (Exception e) {

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.team3.ms.mystocks.R;
 import com.team3.ms.mystocks.entity.IconBean;
+import com.team3.ms.mystocks.tools.GetImageByUrl;
 
 import java.util.List;
 
@@ -50,7 +51,12 @@ public class IconAdapter extends BaseAdapter {
         //从list取出对象
         IconBean bean=mlist.get(position);
         //设置item的内容
-        viewHolder.mImageView.setImageResource(bean.getIcon_Image_Id());
+        //viewHolder.mImageView.setImageResource(bean.getIcon_Image_Id());
+
+        // 这里调用了图片加载工具类的setImage方法将图片直接显示到控件上
+        GetImageByUrl getImageByUrl = new GetImageByUrl();
+        getImageByUrl.setImage(viewHolder.mImageView, bean.getIcon_Image_Id());
+
         viewHolder.mTextView.setText(bean.getIconName());
         return convertView;
     }

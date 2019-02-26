@@ -120,8 +120,9 @@ public class Login extends AppCompatActivity {
                    // Log.i("*******", "res1 ：" + news_url);
                     String publishedAt = jsonObject.getString("publishedAt");
                     String content = jsonObject.getString("content");
+                    String urlToImage= jsonObject.getString("urlToImage");
                    // news n = new news();
-                    news n = new news(title, news_url, publishedAt, content);
+                    news n = new news(title, news_url, publishedAt, content, urlToImage );
                    // Log.i("********", "插入标题");
                    // n.setTitle(title);
                     list.add(n);

@@ -9,6 +9,15 @@ public class news {
     private String publishedAt;
     private String content;
 
+    public String getUrlToImage() {
+        return urlToImage;
+    }
+
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
+    }
+
+    private String urlToImage;
 
 
     public String getTitle() {
@@ -42,17 +51,18 @@ public class news {
     public void setContent(String content) {
         this.content = content;
     }
-    public news(String title, String news_url,String publishedAt,String content){
+    public news(String title, String news_url,String publishedAt,String content,String urlToImage){
         this.title=title;
         this.news_url=news_url;
         this.publishedAt=publishedAt;
         this.content=content;
+        this.urlToImage=urlToImage;
     }
     public news(){
 
     }
     public String getNews(){
-        return getTitle().toString()+getNews_url().toString()+getPublishedAt().toString()+getContent().toString();
+        return getTitle().toString()+getNews_url().toString()+getPublishedAt().toString()+getContent().toString()+getUrlToImage().toString();
 
     }
   /*  public void addnewslist(news n){
