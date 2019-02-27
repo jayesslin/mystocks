@@ -10,12 +10,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.team3.ms.mystocks.R;
 import com.team3.ms.mystocks.entity.stock;
 import com.team3.ms.mystocks.entity.stockdetail;
 import com.team3.ms.mystocks.entity.stocklist;
+import com.team3.ms.mystocks.tools.GetImageByUrl;
 import com.team3.ms.mystocks.tools.Stocks_provider;
 import com.team3.ms.mystocks.tools.stockAdapter;
 
@@ -61,7 +63,7 @@ public class stock_detail extends AppCompatActivity {
         handler =new Handler(){
             public void handleMessage(Message msg){
                 if(msg.what == 1){
-                    TextView txt_name = (TextView) findViewById(R.id.name1);
+
                     TextView txt_symbol1 = (TextView) findViewById(R.id.symbol1);
                     TextView txt_laststpri = (TextView) findViewById(R.id.laststpri);
                     TextView txt_maxpri = (TextView) findViewById(R.id.maxpri);
@@ -76,11 +78,11 @@ public class stock_detail extends AppCompatActivity {
                     Log.i("bb",stock_detaillist.get(0).getname());
 
 
-                    txt_name.setText(stock_detaillist.get(0).getname());
-                    txt_symbol1.setText(stock_detaillist.get(0).getgid());
-                    txt_laststpri.setText(stock_detaillist.get(0).getlastestpri());
-                    txt_maxpri.setText(stock_detaillist.get(0).getmaxpri());
-                    txt_minpri.setText(stock_detaillist.get(0).getminpri());
+
+                    txt_symbol1.setText("Symbol————"+stock_detaillist.get(0).getgid());
+                    txt_laststpri.setText("Lastprice————"+stock_detaillist.get(0).getlastestpri());
+                    txt_maxpri.setText("Max price————"+stock_detaillist.get(0).getmaxpri());
+                    txt_minpri.setText("Min price————"+stock_detaillist.get(0).getminpri());
                     if(stock_detaillist.get(0).getColor().equals("red")){
                         txt_limit.setTextColor(android.graphics.Color.RED);
                         txt_divident.setTextColor(android.graphics.Color.RED);
@@ -88,14 +90,17 @@ public class stock_detail extends AppCompatActivity {
                         txt_limit.setTextColor(Color.GREEN);
                         txt_divident.setTextColor(Color.GREEN);
                     }
-                    txt_limit.setText(stock_detaillist.get(0).getlimit());
-                    txt_traAmount.setText(stock_detaillist.get(0).gettraAmount());
-                    txt_EPS.setText(stock_detaillist.get(0).getEPS());
+                    txt_limit.setText("Limit————"+stock_detaillist.get(0).getlimit());
+                    txt_traAmount.setText("Trade Amount————"+stock_detaillist.get(0).gettraAmount());
+                    txt_EPS.setText("EPS————"+stock_detaillist.get(0).getEPS());
 
-                    txt_divident.setText(stock_detaillist.get(0).getUppic());
-                    txt_afterpic.setText(stock_detaillist.get(0).getafterpic());
-                    txt_afterlimit.setText(stock_detaillist.get(0).getafterlimit());
-                    txt_ustime.setText(stock_detaillist.get(0).getustime());
+                    txt_divident.setText("Upper price————"+stock_detaillist.get(0).getUppic());
+                    txt_afterpic.setText("After price————"+stock_detaillist.get(0).getafterpic());
+                    txt_afterlimit.setText("After limit————"+stock_detaillist.get(0).getafterlimit());
+                    txt_ustime.setText("US date————"+stock_detaillist.get(0).getustime());
+                    ImageView imgview=(ImageView)findViewById(R.id.stockdetailimg);
+                    GetImageByUrl im= new GetImageByUrl();
+                    im.setImage(imgview,stock_detaillist.get(0).getimg());
 
 
 
@@ -130,6 +135,8 @@ public class stock_detail extends AppCompatActivity {
 
 
                     JSONObject object3=object2.getJSONObject("data");
+                    JSONObject object4=object2.getJSONObject("gopicture");
+                    String img=object4.getString("minurl");
 
 
 
@@ -147,8 +154,9 @@ public class stock_detail extends AppCompatActivity {
                             String afterpic=object3.getString("afterpic");
                             String afterlimt=object3.getString("afterlimit");
                             String ustime=object3.getString("ustime");
+                            //Log.i("a",img);
 
-                            stockdetail stock = new stockdetail(name,gid,lastestpri,maxpri,minpri,limit,traAmount,EPS,uppic,afterpic,afterlimt,ustime);
+                            stockdetail stock = new stockdetail(name,gid,lastestpri,maxpri,minpri,limit,traAmount,EPS,uppic,afterpic,afterlimt,ustime,img);
 
                     stock_detaillist.add(stock);
 

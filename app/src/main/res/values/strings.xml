@@ -1,5 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyStocks</string>
+    <string name="openprice2">Openprice</string>
+    <string name="symbol">Symbol</string>
+    <string name="lastprice2">Lastprice</string>
+    <string name="limit">Limit</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="textview">TextView</string>
     <string name="title_activity_stockdetail">stockdetail</string>

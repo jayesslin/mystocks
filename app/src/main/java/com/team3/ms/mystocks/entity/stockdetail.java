@@ -56,6 +56,7 @@ public class stockdetail {
     private String afterlimit;
     private String ustime;
     private  String uppic;
+    private  String img;
     public String getUppic() {
         return uppic;
     }
@@ -77,6 +78,9 @@ public class stockdetail {
     }
     public String getname() {
         return name;
+    }
+    public String getimg() {
+        return img;
     }
     public String getgid() {
         return gid;
@@ -113,7 +117,7 @@ public class stockdetail {
     }
 
     public stockdetail(String name, String gid,String lastestpri, String maxpri, String minpri,
-                       String limit, String traAmount, String EPS,String uppic, String afterpic, String afterlimit, String ustime)
+                       String limit, String traAmount, String EPS,String uppic, String afterpic, String afterlimit, String ustime,String img)
     {
         this.name=name;
         this.gid=gid;
@@ -127,6 +131,7 @@ public class stockdetail {
         this.afterpic=afterpic;
         this.afterlimit=afterlimit;
         this.ustime=ustime;
+        this.img=img;
 
     }
     public stockdetail(){};

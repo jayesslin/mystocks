@@ -8,36 +8,86 @@
 
     <include
         layout="@layout/title1"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/stocktitle1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+
+
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/symbol" />
+
+        <TextView
+            android:id="@+id/stocksym1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/openprice2" />
+
+        <TextView
+            android:id="@+id/stockLastpri1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/lastprice2" />
+
+
+        <TextView
+            android:id="@+id/stocklimit1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="@string/limit" />
+
+
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/stockslistlayout"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="68dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="124dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginEnd="135dp"
-            android:layout_marginRight="71dp"
-            android:layout_marginBottom="5dp"
-            android:layout_toLeftOf="@+id/search_bt"
-            android:layout_toRightOf="@+id/menu"
-            android:gravity="center"
-            android:text="Allstocks"
-            android:textColor="@android:color/background_light"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+
+
         <ListView
 
             android:layout_width="match_parent"
@@ -52,6 +102,7 @@
         app:headerLayout="@layout/side_menu_head"
         app:menu="@menu/menu"
         android:background="#ffffff"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
