@@ -6,15 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".view.search_res">
 
+    <EditText
+        android:id="@+id/symbolt"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Enter the stock ticker symbol"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/got"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Go"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="15dp"
+        android:text="Symbol"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="188dp"
+        android:gravity="center_horizontal"
+        android:text="Open price"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="92dp"
+        android:gravity="center_horizontal"
+        android:text="Last price"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:text="Limit"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ListView
         android:id="@+id/res_list"
         android:layout_width="395dp"
-        android:layout_height="650dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="500dp"
         android:layout_marginLeft="10dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="132dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Back"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>
