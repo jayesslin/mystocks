@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class News_provider {
     public static final String apikey = "235b46f0d14c4bd997654d3cbd52a2cd";
-
+    //public static final String apikey = "354eddc17f0c474eb396400e6c073fe4";
     public String getNews() throws Exception {
         String url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=" + apikey;//请求接口地址
         News_API a = new News_API();
