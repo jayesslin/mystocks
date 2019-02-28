@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class Allstocks extends AppCompatActivity {
     private List<stocklist> stock_list=new ArrayList<>();
     private stockAdapter mAdapter=null;
     private Handler handler;
-
+    private ImageView imageView8,imageView10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,33 @@ public class Allstocks extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),homePage.class);
                 startActivity(ss11);
+                finish();
             }
         });
+
+        //logo 跳转
+        //stock logo 跳转
+        imageView10 = (ImageView)findViewById(R.id.imageView10);
+        imageView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
+                startActivity(ss11);
+                finish();
+            }
+        });
+        //home logo 跳转
+        imageView8 = (ImageView)findViewById(R.id.imageView8);
+        imageView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(ss11);
+                finish();
+            }
+        });
+
+
 
         handler =new Handler(){
             public void handleMessage(Message msg){

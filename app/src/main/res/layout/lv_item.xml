@@ -11,7 +11,7 @@
         android:gravity="center"
         android:text="icon"
         android:textColor="@android:color/black"
-        android:textSize="10sp" />
+        android:textSize="17sp" />
 
     <ImageView
         android:id="@+id/iv_icon"

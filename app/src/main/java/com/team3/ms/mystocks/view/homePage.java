@@ -28,7 +28,7 @@ public class homePage extends AppCompatActivity {
     private List<IconBean> mIconBeenList = new ArrayList<>();
     private ListView lv;
     private TextView main_home,Stock;
-    private ImageView search_bt;
+    private ImageView search_bt,imageView8,imageView10;
     private ArrayList<String> news_webview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +41,42 @@ public class homePage extends AppCompatActivity {
         new GetNewsData().execute();
         //lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
 
-
-
+        //home logo 跳转
+        imageView8 = (ImageView)findViewById(R.id.imageView8);
+        imageView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(ss11);
+                finish();
+            }
+        });
+        main_home =(TextView)findViewById(R.id.main_home);
+        main_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(ss11);
+                finish();
+            }
+        });
+        //stock logo 跳转
+        imageView10 = (ImageView)findViewById(R.id.imageView10);
+        imageView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
+                startActivity(ss11);
+                finish();
+            }
+        });
         Stock = (TextView)findViewById(R.id.Stock);
         Stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
                 startActivity(ss11);
+                finish();
             }
         });
 
@@ -58,6 +86,7 @@ public class homePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent sss11 = new Intent(getApplicationContext(),Inquery.class);
                 startActivity(sss11);
+
             }
         });
     }
