@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/lv_name"
-        android:layout_width="312dp"
+        android:layout_width="250dp"
         android:layout_height="102dp"
         android:gravity="center"
         android:text="icon"

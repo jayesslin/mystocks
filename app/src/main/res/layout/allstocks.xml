@@ -13,11 +13,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:orientation="horizontal"
+
         android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/stocktitle1"
-            android:layout_width="90dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="70dp"
@@ -32,7 +33,7 @@
 
         <TextView
             android:id="@+id/stocksym1"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="70dp"
@@ -47,7 +48,7 @@
 
         <TextView
             android:id="@+id/stockLastpri1"
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="70dp"
@@ -63,7 +64,8 @@
 
         <TextView
             android:id="@+id/stocklimit1"
-            android:layout_width="match_parent"
+
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="70dp"
@@ -86,6 +88,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="68dp"
         android:orientation="vertical"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/stockslist"
-            android:dividerHeight="8dp">
+            android:dividerHeight="0dp">
 
         </ListView>
     </LinearLayout>

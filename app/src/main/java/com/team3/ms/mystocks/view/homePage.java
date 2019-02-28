@@ -42,7 +42,7 @@ public class homePage extends AppCompatActivity {
         //lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
 
         //home logo 跳转
-        imageView8 = (ImageView)findViewById(R.id.imageView8);
+        imageView8 = (ImageView)findViewById(R.id.homeimg);
         imageView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class homePage extends AppCompatActivity {
                 finish();
             }
         });
-        main_home =(TextView)findViewById(R.id.main_home);
+        main_home =(TextView)findViewById(R.id.main_home1);
         main_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +61,7 @@ public class homePage extends AppCompatActivity {
             }
         });
         //stock logo 跳转
-        imageView10 = (ImageView)findViewById(R.id.imageView10);
+        imageView10 = (ImageView)findViewById(R.id.stockicon);
         imageView10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +70,7 @@ public class homePage extends AppCompatActivity {
                 finish();
             }
         });
-        Stock = (TextView)findViewById(R.id.Stock);
+        Stock = (TextView)findViewById(R.id.Stock1);
         Stock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

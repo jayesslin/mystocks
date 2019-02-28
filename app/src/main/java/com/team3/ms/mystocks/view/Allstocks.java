@@ -40,7 +40,7 @@ public class Allstocks extends AppCompatActivity {
         list_stockview=(ListView)findViewById(R.id.stockslist);
         mContext=Allstocks.this;
         get();
-        TextView main_home = (TextView)findViewById(R.id.main_home);
+        TextView main_home = (TextView)findViewById(R.id.main_home1);
         main_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class Allstocks extends AppCompatActivity {
 
         //logo 跳转
         //stock logo 跳转
-        imageView10 = (ImageView)findViewById(R.id.imageView10);
+        imageView10 = (ImageView)findViewById(R.id.stockicon);
         imageView10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +62,7 @@ public class Allstocks extends AppCompatActivity {
             }
         });
         //home logo 跳转
-        imageView8 = (ImageView)findViewById(R.id.imageView8);
+        imageView8 = (ImageView)findViewById(R.id.homeimg);
         imageView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
