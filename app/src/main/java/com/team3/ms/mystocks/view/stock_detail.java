@@ -46,7 +46,7 @@ public class stock_detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stockdetail);
-        Button backButton = (Button)findViewById(R.id.backButton);
+        ImageView backButton = (ImageView)findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

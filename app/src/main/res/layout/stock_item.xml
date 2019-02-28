@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/stocktitle"
-        android:layout_width="100dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -17,12 +17,13 @@
 
 
         android:textColor="#000"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
      android:text="symbol" />
 
     <TextView
         android:id="@+id/stocksym"
-        android:layout_width="100dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"

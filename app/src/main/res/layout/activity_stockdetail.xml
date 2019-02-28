@@ -17,16 +17,17 @@
         tools:layout_editor_absoluteX="16dp">
 
         <ImageView
-            android:id="@+id/menu1"
+            android:id="@+id/backButton"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="9dp"
+            android:clickable="true"
             android:layout_marginLeft="9dp"
             android:layout_marginBottom="5dp"
-            app:srcCompat="@drawable/caidan1" />
+            app:srcCompat="@drawable/back" />
 
         <ImageView
             android:id="@+id/search_bt"
@@ -250,34 +251,7 @@
 
 
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-            <Button
-                android:id="@+id/backButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
-                android:text="Back"
-                android:textColor="@android:color/background_light"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-    </LinearLayout>
-</RelativeLayout>
 
 
 </android.support.constraint.ConstraintLayout>
