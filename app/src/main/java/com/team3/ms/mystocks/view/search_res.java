@@ -100,7 +100,7 @@ public class search_res extends AppCompatActivity {
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
 
-                    String result=sp.getRequest5();
+                    String result=sp.getRequest5(1);
                     System.out.println("my11" + search_text);
 
                     JSONObject object1=new JSONObject(result);

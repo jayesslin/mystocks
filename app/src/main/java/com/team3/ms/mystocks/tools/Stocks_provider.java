@@ -27,8 +27,9 @@ public class Stocks_provider {
     public static final int DEF_READ_TIMEOUT = 30000;
     public static String userAgent =  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
 
-    public static final String APPKEY ="219d99f4bb845ce7afde39c6de48ce1d";
+    public static final String APPKEY ="f1f7b9a6e48b69f5fceb5e9f7fd0b968";
     //王鹏云APPKEY：f1f7b9a6e48b69f5fceb5e9f7fd0b968
+    //219d99f4bb845ce7afde39c6de48ce1d
 
 
     //public static final String APPKEY ="b02affef6f4f8d0f1e639f407f9fe7b8";
@@ -69,13 +70,13 @@ public class Stocks_provider {
         return result;
     }
 
-    public  String getRequest5() throws Exception{
+    public  String getRequest5(int i) throws Exception{
         String result = null;
 
         String url = "http://web.juhe.cn:8080/finance/stock/usaall";//请求接口地址
         Map params = new HashMap();//请求参数
         params.put("key", APPKEY);//您申请的APPKEY
-        params.put("page", "1");//第几页,每页20条数据,默认第1页
+        params.put("page",i);//第几页,每页20条数据,默认第1页
 
         result = net(url, params, "GET");
 

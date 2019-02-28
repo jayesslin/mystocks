@@ -131,7 +131,7 @@ public class Allstocks extends AppCompatActivity {
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
 
-                    String result=sp.getRequest5();
+                    String result=sp.getRequest5(1);
 
                     JSONObject object1=new JSONObject(result);
                     JSONObject object2=object1.getJSONObject("result");
