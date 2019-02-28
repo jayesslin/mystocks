@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
@@ -39,25 +39,25 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="7dp"
-            app:srcCompat="@drawable/sousuo77" />
+            />
 
         <TextView
             android:id="@+id/stockdetailtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginEnd="49dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="93dp"
 
-            android:layout_marginRight="49dp"
+            android:layout_marginRight="80dp"
             android:layout_marginBottom="1dp"
             android:layout_toStartOf="@+id/search_bt"
             android:layout_toLeftOf="@+id/search_bt"
             android:layout_toEndOf="@+id/menu"
             android:layout_toRightOf="@+id/menu"
             android:gravity="center"
-            android:text="StockDetail"
+            android:text="Detail"
             android:textColor="@android:color/background_light"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -246,8 +246,6 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal" />
         </LinearLayout>
-
-
 
 
     </LinearLayout>

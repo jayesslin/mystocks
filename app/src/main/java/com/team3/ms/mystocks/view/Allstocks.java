@@ -31,7 +31,7 @@ public class Allstocks extends AppCompatActivity {
     private List<stocklist> stock_list=new ArrayList<>();
     private stockAdapter mAdapter=null;
     private Handler handler;
-    private ImageView imageView8,imageView10;
+    private ImageView imageView8,imageView10,search_bt1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,15 @@ public class Allstocks extends AppCompatActivity {
                 Intent ss11 = new Intent(getApplicationContext(),homePage.class);
                 startActivity(ss11);
                 finish();
+            }
+        });
+        search_bt1 = (ImageView)findViewById(R.id.search_bt1);
+        search_bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sss11 = new Intent(getApplicationContext(),Inquery.class);
+                startActivity(sss11);
+
             }
         });
 
