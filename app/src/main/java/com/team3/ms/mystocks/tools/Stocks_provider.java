@@ -26,9 +26,14 @@ public class Stocks_provider {
     public static final int DEF_CONN_TIMEOUT = 30000;
     public static final int DEF_READ_TIMEOUT = 30000;
     public static String userAgent =  "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
+
     public static final String APPKEY ="219d99f4bb845ce7afde39c6de48ce1d";
     //王鹏云APPKEY：f1f7b9a6e48b69f5fceb5e9f7fd0b968
 
+
+    //public static final String APPKEY ="b02affef6f4f8d0f1e639f407f9fe7b8";
+
+    // 林道琰的APPKEY：fd8c893bb39a02710dae48722c0897cdefe67362
 
     public String getStock(String gid) throws Exception {
         String url ="http://web.juhe.cn:8080/finance/stock/usa";//请求接口地址
