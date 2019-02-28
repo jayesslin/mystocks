@@ -32,7 +32,7 @@ public class stock_detail extends AppCompatActivity {
     private String gid;
     private List<stockdetail> stock_detaillist=new ArrayList<>();
     private Handler handler;
-
+    private ImageView search_bt;
 
 
 
@@ -55,7 +55,16 @@ public class stock_detail extends AppCompatActivity {
             }
         });
         gid=getIntent().getStringExtra("gid");
+        //搜索跳转
+        search_bt = (ImageView)findViewById(R.id.search_bt);
+        search_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sss11 = new Intent(getApplicationContext(),Inquery.class);
+                startActivity(sss11);
 
+            }
+        });
 
 
         getgid(gid);

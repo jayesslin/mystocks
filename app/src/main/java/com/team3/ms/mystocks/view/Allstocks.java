@@ -139,7 +139,27 @@ public class Allstocks extends AppCompatActivity {
 
                     for(int i=0;i<20;i++){
                         JSONObject a=array1.getJSONObject(i);
-                        String name=a.getString("cname");
+                        switch (a.getString("symbol")){
+                            case "BRK.A":
+                                continue;
+                            case "BRK.B":
+                                continue;
+                                default:
+                                    String name=a.getString("cname");
+                                    String gid =a.getString("symbol");
+                                    String openpri =a.getString("open");
+                                    String lastestpri =a.getString("price");
+                                    String uppic =a.getString("high");
+                                    String limit =a.getString("chg");
+
+                                    stocklist stock=new stocklist(gid,openpri,lastestpri,limit);
+
+
+                                    stock_list.add(stock);
+
+
+                        }
+                        /*String name=a.getString("cname");
                         String gid =a.getString("symbol");
                         String openpri =a.getString("open");
                         String lastestpri =a.getString("price");
@@ -150,7 +170,7 @@ public class Allstocks extends AppCompatActivity {
 
 
                         stock_list.add(stock);
-
+*/
 
 
 
