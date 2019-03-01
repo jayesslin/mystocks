@@ -57,6 +57,73 @@ public class stockdetail {
     private String ustime;
     private  String uppic;
     private  String img;
+    private String companyName;
+    private String  high;
+    private String  low;
+    private String  changePercent;
+    private String week52High;
+    private String week52low;
+
+    public String getOpen() {
+        return open;
+    }
+
+    public void setOpen(String open) {
+        this.open = open;
+    }
+
+    private String open;
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getHigh() {
+        return high;
+    }
+
+    public void setHigh(String high) {
+        this.high = high;
+    }
+
+    public String getLow() {
+        return low;
+    }
+
+    public void setLow(String low) {
+        this.low = low;
+    }
+
+    public String getChangePercent() {
+        return changePercent;
+    }
+
+    public void setChangePercent(String changePercent) {
+        this.changePercent = changePercent;
+    }
+
+    public String getWeek52High() {
+        return week52High;
+    }
+
+    public void setWeek52High(String week52High) {
+        this.week52High = week52High;
+    }
+
+    public String getWeek52low() {
+        return week52low;
+    }
+
+    public void setWeek52low(String week52low) {
+        this.week52low = week52low;
+    }
+
+
+
+
     public String getUppic() {
         return uppic;
     }
@@ -67,7 +134,13 @@ public class stockdetail {
 
 
     public String getColor() {
-        double colorvalue =  Double.parseDouble(getlimit().toString());
+        double colorvalue;
+        if(getlimit()!=null) {
+            colorvalue = Double.parseDouble(getlimit().toString());
+        }
+        else {
+             colorvalue = Double.parseDouble(getChangePercent().toString());
+        }
 
         //涨是绿色
         if(colorvalue>0){
@@ -116,8 +189,16 @@ public class stockdetail {
         return ustime;
     }
 
-    public stockdetail(String name, String gid,String lastestpri, String maxpri, String minpri,
-                       String limit, String traAmount, String EPS,String uppic, String afterpic, String afterlimit, String ustime,String img)
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public stockdetail(String name, String gid, String lastestpri, String maxpri, String minpri,
+                       String limit, String traAmount, String EPS, String uppic, String afterpic, String afterlimit, String ustime, String img)
     {
         this.name=name;
         this.gid=gid;
@@ -136,6 +217,26 @@ public class stockdetail {
     }
     public stockdetail(){};
 
+
+
+
+    public stockdetail(String companyName, String gid,String openpri, String lastestpri, String high,
+                       String low, String uppic, String changePercent,String week52High, String week52Low, String ustime)
+    {
+        this.companyName=companyName;
+        this.gid=gid;
+        this.lastestpri=lastestpri;
+        this.high=high;
+        this.low=low;
+        this.uppic=uppic;
+        this.changePercent=changePercent;
+        this.week52High=week52High;
+        this.week52low=week52Low;
+        this.open=openpri;
+        this.ustime=ustime;
+
+
+    }
 
 
 

@@ -84,14 +84,14 @@ public class stock_detail extends AppCompatActivity {
                     TextView txt_afterpic = (TextView) findViewById(R.id.afterpic);
                     TextView txt_afterlimit = (TextView) findViewById(R.id.afterlimit);
                     TextView txt_ustime = (TextView) findViewById(R.id.ustime);
-                    Log.i("bb",stock_detaillist.get(0).getname());
+                    //Log.i("bb",stock_detaillist.get(0).getname());
 
 
-
+                    txt_EPS.setText("CompanyName————"+stock_detaillist.get(0).getCompanyName());
                     txt_symbol1.setText("Symbol————"+stock_detaillist.get(0).getgid());
                     txt_laststpri.setText("Lastprice————"+stock_detaillist.get(0).getlastestpri());
-                    txt_maxpri.setText("Max price————"+stock_detaillist.get(0).getmaxpri());
-                    txt_minpri.setText("Min price————"+stock_detaillist.get(0).getminpri());
+                    txt_maxpri.setText("Max price————"+stock_detaillist.get(0).getHigh());
+                    txt_minpri.setText("Min price————"+stock_detaillist.get(0).getLow());
                     if(stock_detaillist.get(0).getColor().equals("red")){
                         txt_limit.setTextColor(android.graphics.Color.RED);
                         txt_divident.setTextColor(android.graphics.Color.RED);
@@ -99,17 +99,16 @@ public class stock_detail extends AppCompatActivity {
                         txt_limit.setTextColor(Color.GREEN);
                         txt_divident.setTextColor(Color.GREEN);
                     }
-                    txt_limit.setText("Limit————"+stock_detaillist.get(0).getlimit());
-                    txt_traAmount.setText("Trade Amount————"+stock_detaillist.get(0).gettraAmount());
-                    txt_EPS.setText("EPS————"+stock_detaillist.get(0).getEPS());
+                    txt_limit.setText("change————"+stock_detaillist.get(0).getChangePercent());
+                    txt_traAmount.setText("Open————"+stock_detaillist.get(0).getOpen());
 
                     txt_divident.setText("Upper price————"+stock_detaillist.get(0).getUppic());
-                    txt_afterpic.setText("After price————"+stock_detaillist.get(0).getafterpic());
-                    txt_afterlimit.setText("After limit————"+stock_detaillist.get(0).getafterlimit());
+                    txt_afterpic.setText("Week52High————"+stock_detaillist.get(0).getWeek52High());
+                    txt_afterlimit.setText("Week52low————"+stock_detaillist.get(0).getWeek52low());
                     txt_ustime.setText("US date————"+stock_detaillist.get(0).getustime());
-                    ImageView imgview=(ImageView)findViewById(R.id.stockdetailimg);
+                    /*ImageView imgview=(ImageView)findViewById(R.id.stockdetailimg);
                     GetImageByUrl im= new GetImageByUrl();
-                    im.setImage(imgview,stock_detaillist.get(0).getimg());
+                    im.setImage(imgview,stock_detaillist.get(0).getimg());*/
 
 
 
@@ -136,7 +135,44 @@ public class stock_detail extends AppCompatActivity {
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
 
-                    String result=sp.getRequest(gid);
+                    String  url_head="https://cloud.iexapis.com/beta/stock/";
+                    String url_nil ="/quote?displayPercent=true&token=pk_d58ac872888a44d0915cce73e9849e32";
+                    String quote=gid;
+
+                        String url_request=url_head+quote+url_nil;
+                        String result=sp.getStocklist();
+
+                        JSONArray  array1=new JSONArray(result);
+                        JSONObject a = array1.getJSONObject(0);
+                        String companyName = a.getString("companyName");
+                        String gid = a.getString("symbol");
+                        String openpri = a.getString("open");
+                        String lastestpri = a.getString("latestPrice");
+                        String high = a.getString("high");
+                        String low = a.getString("low");
+                        String uppic = a.getString("change");
+                        String changePercent = a.getString("changePercent");
+                        String week52High = a.getString("week52High");
+                        String week52Low = a.getString("week52Low");
+                        String ustime=a.getString("latestTime");
+                        stockdetail stock = new stockdetail(companyName,gid,openpri,lastestpri,high,low,uppic,changePercent,week52High,week52Low,ustime);
+
+
+
+                     /*   String result1=sp.getRequest(gid);
+
+                        JSONObject object1=new JSONObject(result1);
+                        JSONArray array11=object1.getJSONArray("result");
+                        JSONObject object2=array11.getJSONObject(0);
+
+                        JSONObject object4=object2.getJSONObject("gopicture");
+                        String img=object4.getString("minurl");
+                        stock.setImg(img);*/
+                        stock_detaillist.add(stock);
+
+
+
+                    /*String result=sp.getRequest(gid);
 
                     JSONObject object1=new JSONObject(result);
                     JSONArray array1=object1.getJSONArray("result");
@@ -168,7 +204,7 @@ public class stock_detail extends AppCompatActivity {
                             stockdetail stock = new stockdetail(name,gid,lastestpri,maxpri,minpri,limit,traAmount,EPS,uppic,afterpic,afterlimt,ustime,img);
 
                     stock_detaillist.add(stock);
-
+*/
 
                     Message msg = new Message();
                     msg.what = 1;

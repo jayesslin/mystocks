@@ -130,35 +130,75 @@ public class Allstocks extends AppCompatActivity {
             @Override
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
+                    String  url_head="https://cloud.iexapis.com/beta/stock/";
+                    String url_nil ="/quote?token=pk_d58ac872888a44d0915cce73e9849e32";
+                    String[] quote={
+                      "AAPL","AAAE","AMCG","CJJD","AKRK","AMGY","BEER",
+                    };
+                    for(int i=0;i<quote.length;i++){
+                        String url_request=url_head+quote[i]+url_nil;
+                        String result=sp.getStocklist();
 
-                    String result=sp.getRequest5(1);
+                        JSONArray  array1=new JSONArray(result);
+                        JSONObject a = array1.getJSONObject(i);
+
+                        String gid = a.getString("symbol");
+                        String openpri = a.getString("open");
+                        String lastestpri = a.getString("latestPrice");
+                        String uppic = a.getString("high");
+                        String limit = a.getString("change");
+
+                        stocklist stock = new stocklist(gid, openpri, lastestpri, limit);
+
+
+                        stock_list.add(stock);
+                    }
+                    String result=sp.getStocklist();
+
+                    JSONArray  array1=new JSONArray(result);
+                    for(int i=0;i<10;i++) {
+                        JSONObject a = array1.getJSONObject(i);
+
+                        String gid = a.getString("symbol");
+                        String openpri = a.getString("open");
+                        String lastestpri = a.getString("latestPrice");
+                        String uppic = a.getString("high");
+                        String limit = a.getString("change");
+
+                        stocklist stock = new stocklist(gid, openpri, lastestpri, limit);
+
+
+                        stock_list.add(stock);
+                    }
+                   /* String result=sp.getRequest5(1);
 
                     JSONObject object1=new JSONObject(result);
                     JSONObject object2=object1.getJSONObject("result");
                     JSONArray array1=object2.getJSONArray("data");
 
-                    for(int i=0;i<20;i++){
-                        JSONObject a=array1.getJSONObject(i);
-                        switch (a.getString("symbol")){
+                    for(int i=0;i<20;i++) {
+                        JSONObject a = array1.getJSONObject(i);
+                        switch (a.getString("symbol")) {
                             case "BRK.A":
                                 continue;
                             case "BRK.B":
                                 continue;
-                                default:
-                                    String name=a.getString("cname");
-                                    String gid =a.getString("symbol");
-                                    String openpri =a.getString("open");
-                                    String lastestpri =a.getString("price");
-                                    String uppic =a.getString("high");
-                                    String limit =a.getString("chg");
+                            default:
+                                String name = a.getString("cname");
+                                String gid = a.getString("symbol");
+                                String openpri = a.getString("open");
+                                String lastestpri = a.getString("price");
+                                String uppic = a.getString("high");
+                                String limit = a.getString("chg");
 
-                                    stocklist stock=new stocklist(gid,openpri,lastestpri,limit);
+                                stocklist stock = new stocklist(gid, openpri, lastestpri, limit);
 
 
-                                    stock_list.add(stock);
+                                stock_list.add(stock);
 
 
                         }
+                    }*/
                         /*String name=a.getString("cname");
                         String gid =a.getString("symbol");
                         String openpri =a.getString("open");
@@ -176,7 +216,6 @@ public class Allstocks extends AppCompatActivity {
 
 
 
-                    }
 
                     Message msg = new Message();
                     msg.what = 1;
