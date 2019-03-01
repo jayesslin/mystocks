@@ -63,6 +63,63 @@ public class stockdetail {
     private String  changePercent;
     private String week52High;
     private String week52low;
+    private   String pe_ratio;
+    private String marketCap;
+    private String avl_volume ;
+    private String latestVolume;
+
+    public String getClose() {
+        return close;
+    }
+
+    public void setClose(String close) {
+        this.close = close;
+    }
+
+    private  String close;
+
+    public String getPe_ratio() {
+        return pe_ratio;
+    }
+
+    public void setPe_ratio(String pe_ratio) {
+        this.pe_ratio = pe_ratio;
+    }
+
+    public String getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap(String marketCap) {
+        this.marketCap = marketCap;
+    }
+
+    public String getAvl_volume() {
+        return avl_volume;
+    }
+
+    public void setAvl_volume(String avl_volume) {
+        this.avl_volume = avl_volume;
+    }
+
+    public String getLatestVolume() {
+        return latestVolume;
+    }
+
+    public void setLatestVolume(String latestVolume) {
+        this.latestVolume = latestVolume;
+    }
+
+
+    public String getPrimaryExchange() {
+        return primaryExchange;
+    }
+
+    public void setPrimaryExchange(String primaryExchange) {
+        this.primaryExchange = primaryExchange;
+    }
+
+    private String primaryExchange;
 
     public String getOpen() {
         return open;

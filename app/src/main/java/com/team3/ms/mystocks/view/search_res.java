@@ -66,10 +66,8 @@ public class search_res extends AppCompatActivity {
                 System.out.println(msg.what);
                 if(msg.what == 1){
                     /**/
-
                     /*for (int i = 0 ; i < stock_list.size() ; i++)
                         Log.d("value is" , stock_list.get(i).toString());*/
-
                     mAdapter=new stockAdapter(stock_list,resContext);
                     searchList.setAdapter(mAdapter);
                     searchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -116,7 +114,6 @@ public class search_res extends AppCompatActivity {
                         System.out.println("my" + gid);
                         if(search_text.equals(gid)){
                             String name=a.getString("cname");
-
                             String openpri =a.getString("open");
                             String lastestpri =a.getString("price");
                             String uppic =a.getString("high");

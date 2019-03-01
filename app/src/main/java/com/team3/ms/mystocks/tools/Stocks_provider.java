@@ -166,7 +166,20 @@ public class Stocks_provider {
     public String getStocklist()  throws Exception {
         String result = null;
 
-        String url = "https://api.iextrading.com/1.0/stock/market/list/mostactive";//请求接口地址
+        String url = "https://api.iextrading.com/1.0/stock/market/list/infocus";//请求接口地址
+
+        News_API n = new News_API();
+
+        result = n.net(url, "GET");
+
+
+        return result;
+
+
+    }
+    public String getaStocklist(String url)  throws Exception {
+        String result = null;
+
 
         News_API n = new News_API();
 

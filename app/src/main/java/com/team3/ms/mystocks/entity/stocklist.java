@@ -5,6 +5,15 @@ public class stocklist {
 
     //股票代码
     private String gid;
+
+    public String getOpenpri() {
+        return openpri;
+    }
+
+    public void setOpenpri(String openpri) {
+        this.openpri = openpri;
+    }
+
     //开盘价
     private String openpri;
     //最新价
@@ -62,9 +71,9 @@ public class stocklist {
 
 
 
-    public stocklist(String name,String gid,String lastestpri, String limit){
+    public stocklist(String gid,String openpri,String lastestpri, String limit){
         this.gid=gid;
-        this.name=name;
+        this.openpri=openpri;
 
         this.lastestpri=lastestpri;
 

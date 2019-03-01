@@ -37,6 +37,7 @@
         <activity android:name=".view.Changepasswordpage" />
         <activity android:name=".view.homePage"/>
         <activity android:name=".view.new_detail_page"/>
+        <activity android:name=".view.stock_detail_new"/>
         <activity android:name=".view.Inquery"/>
         <activity android:name=".view.search_res"/>
         <activity android:name=".view.homePage_orin"></activity>

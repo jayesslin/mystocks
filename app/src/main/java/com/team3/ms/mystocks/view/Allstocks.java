@@ -98,8 +98,8 @@ public class Allstocks extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             stocklist a=stock_list.get(position);
-                            Intent intent=new Intent(Allstocks.this, stock_detail.class);
-                            intent.putExtra("gid",a.getname());
+                            Intent intent=new Intent(Allstocks.this, stock_detail_new.class);
+                            intent.putExtra("gid",a.getGid());
                             startActivity(intent);
 
                         }
@@ -130,14 +130,14 @@ public class Allstocks extends AppCompatActivity {
             @Override
             public void run() {
                 try{ Stocks_provider sp=new Stocks_provider();
-                    String  url_head="https://cloud.iexapis.com/beta/stock/";
+                    /*String  url_head="https://cloud.iexapis.com/beta/stock/";
                     String url_nil ="/quote?token=pk_d58ac872888a44d0915cce73e9849e32";
                     String[] quote={
                       "AAPL","AAAE","AMCG","CJJD","AKRK","AMGY","BEER",
                     };
-                    for(int i=0;i<quote.length;i++){
+                    for(int i=1;i<quote.length;i++){
                         String url_request=url_head+quote[i]+url_nil;
-                        String result=sp.getStocklist();
+                        String result=sp.getStocklist(url_request);
 
                         JSONArray  array1=new JSONArray(result);
                         JSONObject a = array1.getJSONObject(i);
@@ -152,7 +152,7 @@ public class Allstocks extends AppCompatActivity {
 
 
                         stock_list.add(stock);
-                    }
+                    }*/
                     String result=sp.getStocklist();
 
                     JSONArray  array1=new JSONArray(result);

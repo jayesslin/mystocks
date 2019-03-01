@@ -157,7 +157,7 @@ public class homePage extends AppCompatActivity {
 
 
 
-
+/*
                 String title = newslist.get(i).getTitle();
                 String url = newslist.get(i).getNews_url();
                 String publishAt =  newslist.get(i).getPublishedAt();
@@ -167,7 +167,7 @@ public class homePage extends AppCompatActivity {
                 Log.i("***********","new1_title:"+url);
                 Log.i("***********","new1_title:"+publishAt);
                 Log.i("***********","new1_title:"+content);
-                Log.i("***********","new1_pic_url:"+ urlToImage );
+                Log.i("***********","new1_pic_url:"+ urlToImage );*/
             }
             lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
