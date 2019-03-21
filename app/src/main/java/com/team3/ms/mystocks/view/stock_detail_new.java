@@ -2,6 +2,7 @@ package com.team3.ms.mystocks.view;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,8 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.team3.ms.mystocks.DBmgr.dbmanage;
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.controller.collectcontroller;
 import com.team3.ms.mystocks.entity.stockdetail;
 import com.team3.ms.mystocks.tools.GetImageByUrl;
 import com.team3.ms.mystocks.tools.Stocks_provider;
@@ -30,11 +34,16 @@ public class stock_detail_new extends AppCompatActivity {
     private ImageView search_bt;
     private TextView company,latestprice,change_per,primaryExchange,symbol_c,open_c,close_c,week52high_c, week52low_c,avl_volume_c,volume_c,pe_rotio_c,marketcap_c;
     private stockdetail stock;
+    private dbmanage dbMgr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stockdetail_new);
+        dbMgr = new dbmanage(stock_detail_new.this, "MyStocks.db", null, 1);
         ImageView backButton = (ImageView)findViewById(R.id.backButton);
+        Typeface collectfont = Typeface.createFromAsset(getAssets(), "iconfont/collect.ttf");
+        TextView collectV = (TextView)findViewById(R.id.collect);
+        collectV.setTypeface(collectfont);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +52,21 @@ public class stock_detail_new extends AppCompatActivity {
             }
         });
         gid=getIntent().getStringExtra("gid");
-        Log.i("***********","gid: "+gid);
+        //收藏
+        collectV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("collect_symbol:",gid);
+                collectcontroller cc = new collectcontroller();
+                boolean res = cc.collect_stock(dbMgr, gid);
+                if(res == true){
+                    Toast.makeText(stock_detail_new.this,"The stock is collected into my stock successfully!",(int)2000).show();
+                }else{
+                    Toast.makeText(stock_detail_new.this,"The stock is removed from my stock!",(int)2000).show();
+                }
+            }
+        });
+//        Log.i("***********","gid: "+gid);
         //搜索跳转
         search_bt = (ImageView)findViewById(R.id.search_bt);
         search_bt.setOnClickListener(new View.OnClickListener() {

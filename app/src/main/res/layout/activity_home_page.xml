@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
     tools:context=".view.homePage">
 
     <include
@@ -31,6 +32,7 @@
 
     </LinearLayout>
     <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
         android:layout_gravity="left"
         app:headerLayout="@layout/side_menu_head"
         app:menu="@menu/menu"

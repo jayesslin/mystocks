@@ -18,9 +18,11 @@ public class dbmanage extends SQLiteOpenHelper {
     private static final String DB_NAME = "MyStocks.db";
     //table name
     private static final String TBL_NAME = "user";
+    private static final String TBL_NAME_collect = "collect";
     //建立数据库表SQL语句
     private static final String CREATE_TBL = "create table user " +
             "(id integer primary key autoincrement,name varchar(20) unique,email varchar(20),password varchar(20))";
+    private static final String CREATE_TBL_collect = "create table collect (id integer primary key autoincrement,symbol varchar(20))";
 
     //SQLiteDatabase
     private SQLiteDatabase db;
@@ -39,7 +41,11 @@ public class dbmanage extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         /*db.execSQL(CREATE_TBL_event);*/
+
+        db.execSQL(CREATE_TBL_collect);
         db.execSQL(CREATE_TBL);
+        Log.i("=======","creat!!!!!!!! ");
+
 
         //Toast.makeText(context, "创建数据库成功", Toast.LENGTH_SHORT).show();
     }
@@ -50,9 +56,11 @@ public class dbmanage extends SQLiteOpenHelper {
         if(oldVersion < 3){//当数据库版本小于版本2时，就要升级下面的所有字段
 
             db.execSQL(CREATE_TBL);
+            db.execSQL(CREATE_TBL_collect);
         }
     }
     public void open() {
+        System.out.println("oooo");
         db = getWritableDatabase();
     }
     //close db
@@ -68,6 +76,17 @@ public class dbmanage extends SQLiteOpenHelper {
 
         db.execSQL("insert into user values(null,?,?,?)",new String []{user.getUserName(),user.getEmail(),user.getPassword()});
         Log.i("=======","email " + user.getEmail()+" name "+user.getUserName()+" psd "+user.getPassword());
+        close();
+    }
+    public void save_collect(String symbol){
+        open();
+
+        db.execSQL("insert into collect values(null,?)",new String[]{symbol});
+        Cursor c = db.query("collect", new String[]{"id", "symbol"}, null, null, null, null, null);
+        int num = c.getColumnCount();
+        System.out.println("xffxff The collected symbol is :"+ symbol);
+        System.out.println("xffxff The nnnnn is :"+ num);
+        Log.i("=======","symbol " + symbol);
         close();
     }
 
@@ -96,6 +115,47 @@ public class dbmanage extends SQLiteOpenHelper {
         }
         close();
        return null;
+    }
+    public String[] getcollect(){
+        open();
+//        Cursor result=db.rawQuery("select * from collect", null);
+//        while(result.moveToNext()){
+//            System.out.println("ddddd"+result.getString(1));
+//        }
+        Cursor c = db.query("collect", new String[]{"id", "symbol"}, null, null, null, null, null);
+        int num = c.getCount();
+        String[] sym_list = new String[num];
+        if(c.getColumnCount()>0){
+
+            int i = 0;
+            while (c.moveToNext()) {
+                sym_list[i] = c.getString(1);
+                i++;
+            }
+            System.out.println(sym_list);
+
+        }
+        close();
+        return sym_list;
+    }
+    public String vertify_symbol(String symbol) {
+        open();
+        Cursor c = db.rawQuery("select * from collect where symbol='" + symbol + "'", null);
+        String symbol_collected;
+        while (c.moveToNext()) {
+            String id = c.getString(0);
+            symbol_collected = c.getString(1);
+            return symbol_collected;
+        }
+        close();
+        return null;
+    }
+    public void removestock(String symbol) {
+        open();
+        int deleteCount = db.delete(TBL_NAME_collect,  "symbol=?", new String[] { symbol + "" });
+
+        System.out.println("The delete is "+deleteCount);
+        close();
     }
     public Cursor getUserL(String name){
         open();

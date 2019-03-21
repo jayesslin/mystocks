@@ -75,9 +75,9 @@ public class search_res extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             stocklist a=stock_list.get(position);
-                            Intent intent=new Intent(search_res.this, stock_detail.class);
+                            Intent intent=new Intent(search_res.this, stock_detail_new.class);
                             System.out.println(a.getname());
-                            intent.putExtra("gid",a.getname());
+                            intent.putExtra("gid",a.getGid());
                             startActivity(intent);
 
                         }
