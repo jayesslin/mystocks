@@ -35,15 +35,18 @@ public class stock_detail_new extends AppCompatActivity {
     private TextView company,latestprice,change_per,primaryExchange,symbol_c,open_c,close_c,week52high_c, week52low_c,avl_volume_c,volume_c,pe_rotio_c,marketcap_c;
     private stockdetail stock;
     private dbmanage dbMgr;
+    private TextView collectV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stockdetail_new);
         dbMgr = new dbmanage(stock_detail_new.this, "MyStocks.db", null, 1);
+
         ImageView backButton = (ImageView)findViewById(R.id.backButton);
         Typeface collectfont = Typeface.createFromAsset(getAssets(), "iconfont/collect.ttf");
-        TextView collectV = (TextView)findViewById(R.id.collect);
+        collectV = (TextView)findViewById(R.id.collect);
         collectV.setTypeface(collectfont);
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +55,9 @@ public class stock_detail_new extends AppCompatActivity {
             }
         });
         gid=getIntent().getStringExtra("gid");
+        if(dbMgr.vertify_symbol(gid) != null){
+            collectV.setTextColor(0xffffff00);
+        }
         //收藏
         collectV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +66,10 @@ public class stock_detail_new extends AppCompatActivity {
                 collectcontroller cc = new collectcontroller();
                 boolean res = cc.collect_stock(dbMgr, gid);
                 if(res == true){
+                    collectV.setTextColor(0xffffff00);
                     Toast.makeText(stock_detail_new.this,"The stock is collected into my stock successfully!",(int)2000).show();
                 }else{
+                    collectV.setTextColor(0xff000000);
                     Toast.makeText(stock_detail_new.this,"The stock is removed from my stock!",(int)2000).show();
                 }
             }
