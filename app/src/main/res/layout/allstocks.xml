@@ -105,6 +105,7 @@
         </ListView>
     </LinearLayout>
     <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view1"
         android:layout_gravity="left"
         app:headerLayout="@layout/side_menu_head"
         app:menu="@menu/menu"

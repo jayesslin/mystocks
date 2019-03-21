@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -32,6 +35,7 @@ public class Allstocks extends AppCompatActivity {
     private stockAdapter mAdapter=null;
     private Handler handler;
     private ImageView imageView8,imageView10,search_bt1;
+    private NavigationView navi_v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,7 @@ public class Allstocks extends AppCompatActivity {
 
 
 
+
         handler =new Handler(){
             public void handleMessage(Message msg){
                 if(msg.what == 1){
@@ -113,6 +118,35 @@ public class Allstocks extends AppCompatActivity {
             }
 
         };
+        navi_v = findViewById(R.id.nav_view1);
+        navi_v.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                int id = menuItem.getItemId();
+                if(id == R.id.item1)
+                {
+                    Intent intent = new Intent();
+                    intent.setClass(Allstocks.this,mystock.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if(id == R.id.item2)
+                {
+
+
+                    return true;
+                }
+                else if(id == R.id.item3){
+
+
+                    return true;
+                }else if(id == R.id.item4){
+                    return true;
+                }
+                return false;
+            }
+        });
 
 
 
