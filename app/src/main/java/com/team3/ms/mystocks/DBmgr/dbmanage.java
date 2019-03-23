@@ -29,12 +29,12 @@ public class dbmanage extends SQLiteOpenHelper {
 
     public dbmanage(Context context) {
 
-        super(context, DB_NAME, null, 3);
+        super(context, DB_NAME, null, 4);
     }
 
     public dbmanage(Context context, String name, SQLiteDatabase.CursorFactory factory,
                     int version) {
-        super(context, name, factory, 3);
+        super(context, name, factory, 4);
 
     }
 
@@ -53,9 +53,12 @@ public class dbmanage extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        if(oldVersion < 3){//当数据库版本小于版本2时，就要升级下面的所有字段
-
-            db.execSQL(CREATE_TBL);
+//        if(oldVersion < 3){//当数据库版本小于版本2时，就要升级下面的所有字段
+//
+//            db.execSQL(CREATE_TBL);
+//            db.execSQL(CREATE_TBL_collect);
+//        }
+        if(oldVersion < newVersion){
             db.execSQL(CREATE_TBL_collect);
         }
     }
