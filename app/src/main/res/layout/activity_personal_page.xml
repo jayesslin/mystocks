@@ -243,21 +243,23 @@
         android:layout_width="422dp"
         android:layout_height="1dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="148dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout7" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout5"
         android:layout_width="413dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
@@ -273,7 +275,7 @@
             android:layout_marginStart="54dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="2dp"
-            app:srcCompat="@drawable/mairu" />
+            app:srcCompat="@drawable/mairu1" />
 
         <ImageView
             android:id="@+id/imageView13"
@@ -285,7 +287,7 @@
             android:layout_marginStart="184dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="1dp"
-            app:srcCompat="@drawable/maichu" />
+            app:srcCompat="@drawable/maichu1" />
 
         <ImageView
             android:id="@+id/imageView14"
@@ -301,10 +303,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout7"
         android:layout_width="413dp"
-        android:layout_height="47dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
@@ -355,24 +357,15 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout6"
-        android:layout_width="412dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </RelativeLayout>
-
-    <RelativeLayout
         android:layout_width="412dp"
         android:layout_height="126dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout6"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
 
         <View
             android:id="@+id/view8"
@@ -404,7 +397,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView25"
