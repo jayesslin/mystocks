@@ -133,8 +133,9 @@ public class Allstocks extends AppCompatActivity {
                 }
                 else if(id == R.id.item2)
                 {
-
-
+                    Intent intent = new Intent();
+                    intent.setClass(Allstocks.this,TransactionRecord.class);
+                    startActivity(intent);
                     return true;
                 }
                 else if(id == R.id.item3){

@@ -113,8 +113,9 @@ public class homePage extends AppCompatActivity {
                 }
                 else if(id == R.id.item2)
                 {
-
-
+                    Intent intent = new Intent();
+                    intent.setClass(homePage.this,TransactionRecord.class);
+                    startActivity(intent);
                     return true;
                 }
                 else if(id == R.id.item3){
