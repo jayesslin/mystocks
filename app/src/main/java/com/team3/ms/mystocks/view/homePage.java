@@ -44,6 +44,8 @@ public class homePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         // 定义 ListView组件
         lv=(ListView)findViewById(R.id.listView);
+        Intent s1 =getIntent();
+        final String userName = s1.getStringExtra("id");//获得用户名
         //initData();
         //lv.setAdapter(new IconAdapter(homePage.this,mIconBeenList));
         new GetNewsData().execute();
@@ -119,7 +121,10 @@ public class homePage extends AppCompatActivity {
                     return true;
                 }
                 else if(id == R.id.item3){
-
+                    Intent intent = new Intent();
+                    intent.setClass(homePage.this,personalPage.class);
+                    intent.putExtra("id",userName);
+                    startActivity(intent);
 
                     return true;
                 }else if(id == R.id.item4){

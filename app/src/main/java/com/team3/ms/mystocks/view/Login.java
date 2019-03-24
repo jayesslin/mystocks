@@ -67,6 +67,7 @@ public class Login extends AppCompatActivity {
                     System.out.println("hi");
                     Toast.makeText(Login.this,"Success",(int)2000).show();
                     Intent s = new Intent(getApplicationContext(), homePage.class);
+                    s.putExtra("id",username);
 //                    s.putExtra("extra_data",username);
 //                    s.putExtra("extra_password",pw);
                     startActivity(s);

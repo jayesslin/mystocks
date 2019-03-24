@@ -17,7 +17,7 @@
         <item
             android:id="@+id/item3"
             android:icon="@drawable/youxiang"
-            android:title="Function Three">
+            android:title="My Profile">
 
         </item>
         <item

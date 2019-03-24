@@ -58,9 +58,7 @@ public class dbmanage extends SQLiteOpenHelper {
 //            db.execSQL(CREATE_TBL);
 //            db.execSQL(CREATE_TBL_collect);
 //        }
-        if(oldVersion < newVersion){
-            db.execSQL(CREATE_TBL_collect);
-        }
+
     }
     public void open() {
         System.out.println("oooo");

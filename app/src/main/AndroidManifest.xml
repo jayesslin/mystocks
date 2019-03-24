@@ -39,6 +39,7 @@
         <activity android:name=".view.Inquery" />
         <activity android:name=".view.search_res" />
         <activity android:name=".view.homePage_orin" />
+        <activity android:name=".view.personalPage" />
     </application>
 
 </manifest>
