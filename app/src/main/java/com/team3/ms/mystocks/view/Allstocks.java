@@ -42,6 +42,8 @@ public class Allstocks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allstocks);
         list_stockview=(ListView)findViewById(R.id.stockslist);
+        Intent s1 =getIntent();
+        final String userName = s1.getStringExtra("id");//获得用户名
         mContext=Allstocks.this;
         get();
         TextView main_home = (TextView)findViewById(R.id.main_home1);
@@ -139,7 +141,10 @@ public class Allstocks extends AppCompatActivity {
                     return true;
                 }
                 else if(id == R.id.item3){
-
+                    Intent intent = new Intent();
+                    intent.setClass(Allstocks.this,personalPage.class);
+                    intent.putExtra("id",userName);
+                    startActivity(intent);
 
                     return true;
                 }else if(id == R.id.item4){

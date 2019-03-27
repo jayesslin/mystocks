@@ -57,6 +57,8 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+
+                ss11.putExtra("id",userName);
                 startActivity(ss11);
                 finish();
             }
@@ -66,6 +68,8 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),homePage.class);
+
+                ss11.putExtra("id",userName);
                 startActivity(ss11);
                 finish();
             }
@@ -76,6 +80,8 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
+
+                ss11.putExtra("id",userName);
                 startActivity(ss11);
                 finish();
             }
@@ -85,6 +91,8 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ss11 = new Intent(getApplicationContext(),Allstocks.class);
+
+                ss11.putExtra("id",userName);
                 startActivity(ss11);
                 finish();
             }
