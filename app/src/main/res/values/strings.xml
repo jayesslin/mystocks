@@ -9,4 +9,13 @@
     <string name="textview">TextView</string>
     <string name="title_activity_stockdetail">stockdetail</string>
     <string name="collect">&#xe7df;</string>
+    <string name="pull_to_refresh">pull_to_refresh</string>
+    <string name="release_to_refresh">release_to_refresh</string>
+    <string name="refreshing">refreshing</string>
+    <string name="not_updated_yet">not_updated_yet</string>
+    <string name="updated_at">updated_at%1$s</string>
+    <string name="updated_just_now">updated_just_now</string>
+    <string name="time_error">time_error</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

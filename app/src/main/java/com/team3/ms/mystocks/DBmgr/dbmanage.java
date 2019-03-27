@@ -55,8 +55,8 @@ public class dbmanage extends SQLiteOpenHelper {
 
 //        if(oldVersion < 3){//当数据库版本小于版本2时，就要升级下面的所有字段
 //
-//            db.execSQL(CREATE_TBL);
-//            db.execSQL(CREATE_TBL_collect);
+//        db.execSQL(CREATE_TBL);
+        db.execSQL(CREATE_TBL_collect);
 //        }
 
     }

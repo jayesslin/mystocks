@@ -38,7 +38,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        dbMgr= new dbmanage(Login.this,"MyStocks.db",null,1);
+        dbMgr= new dbmanage(Login.this,"MyStocks.db",null,5);
+
 
 
          /*AsyncTask *//*test for news*/

@@ -22,6 +22,7 @@ public class user {
     public void setEmail(String Email){
         this.Email = Email;
     }
+
     public void setPassword(String Password){
         this.password = Password;
     }

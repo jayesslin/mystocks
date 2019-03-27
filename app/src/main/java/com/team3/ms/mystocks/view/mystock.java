@@ -41,11 +41,15 @@ public class mystock extends AppCompatActivity {
         setContentView(R.layout.activity_mystock);
         dbMgr= new dbmanage(mystock.this,"MyStocks.db",null,1);
         collect_list = (ListView)findViewById(R.id.collect_list);
+        Intent s1 =getIntent();
+        final String userName = s1.getStringExtra("id");
         backButton = (ImageView) findViewById(R.id.backH);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent s1 = new Intent(getApplicationContext(),Allstocks.class);
+                s1.putExtra("id",userName);
                 startActivity(s1);
             }
         });

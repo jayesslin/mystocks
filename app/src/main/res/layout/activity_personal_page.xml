@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_ly"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.personalPage">
+
     <RelativeLayout
         android:id="@+id/biaoti"
         android:layout_width="match_parent"
@@ -17,7 +24,7 @@
         tools:layout_editor_absoluteX="83dp">
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/backpersonal"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
@@ -47,15 +54,26 @@
             android:textColor="@android:color/background_light"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="60dp"
+            android:layout_height="54dp"
+            android:layout_alignStart="@+id/textView10"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="262dp"
+            android:adjustViewBounds="false"
+            app:srcCompat="@drawable/exit" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="153dp"
 
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/biaoti">
 
@@ -63,55 +81,64 @@
             android:id="@+id/view5"
             android:layout_width="480dp"
             android:layout_height="1dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="2dp"
-            android:background="@android:color/darker_gray" />
+            android:layout_marginBottom="24dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="80dp"
             android:layout_height="83dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="29dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="302dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="301dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/Name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="92dp"
-            android:text="Jayess Lin"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="184dp"
+            android:layout_marginBottom="93dp"
+            android:text="Username"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/EmailAdress"
-            android:layout_width="320dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="29dp"
-            android:layout_marginBottom="14dp"
-            android:text="Jayess.Lin@uta.edu.cn" />
+            android:layout_marginStart="140dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="49dp"
+            android:text="Jayess.Lin@uta.edu.cn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="235dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
@@ -238,32 +265,20 @@
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="422dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="148dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout7" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout5"
         android:layout_width="413dp"
-        android:layout_height="45dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
         <ImageView
             android:id="@+id/imageView12"
@@ -272,9 +287,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="54dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="0dp"
             app:srcCompat="@drawable/mairu1" />
 
         <ImageView
@@ -284,8 +299,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="184dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="192dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="1dp"
             app:srcCompat="@drawable/maichu1" />
 
@@ -296,8 +311,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="41dp"
             android:layout_marginBottom="0dp"
             app:srcCompat="@drawable/chaxun" />
     </RelativeLayout>
@@ -305,177 +320,58 @@
     <RelativeLayout
         android:id="@+id/relativeLayout7"
         android:layout_width="413dp"
-        android:layout_height="40dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout5">
 
-        <TextView
+        <Button
             android:id="@+id/textView22"
-            android:layout_width="68dp"
-            android:layout_height="32dp"
+            android:layout_width="119dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="7dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="0dp"
             android:text="BUY"
             android:textAlignment="center"
             android:textSize="24sp" />
 
-        <TextView
+        <Button
             android:id="@+id/textView23"
-            android:layout_width="68dp"
-            android:layout_height="32dp"
+            android:layout_width="121dp"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="176dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="7dp"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="0dp"
             android:text="SELL"
             android:textAlignment="center"
             android:textSize="24sp" />
 
-        <TextView
+        <Button
             android:id="@+id/textView24"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_width="123dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="308dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="284dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="0dp"
             android:text="Inquire"
             android:textAlignment="center"
             android:textSize="24sp" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="412dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
-
-        <View
-            android:id="@+id/view8"
-            android:layout_width="135dp"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="260dp"
-            android:layout_marginBottom="111dp"
-            android:background="@android:color/darker_gray" />
-
-        <View
-            android:id="@+id/view10"
-            android:layout_width="135dp"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="269dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="110dp"
-            android:background="@android:color/darker_gray" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="116dp"
-            android:layout_height="24dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="136dp"
-            android:layout_marginBottom="102dp"
-            android:text="Latest Topic"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="31dp"
-            android:layout_marginBottom="54dp"
-            android:text="5G" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="160dp"
-            android:layout_marginBottom="55dp"
-            android:text="BANK" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="289dp"
-            android:layout_marginBottom="55dp"
-            android:text="conductor" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="31dp"
-            android:layout_marginBottom="8dp"
-            android:text="Business" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="160dp"
-            android:layout_marginBottom="8dp"
-            android:text="Cooperation" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="105dp"
-            android:layout_height="42dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="289dp"
-            android:layout_marginBottom="8dp"
-            android:text="fund" />
-
-    </RelativeLayout>
-
 
 </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -118,6 +118,7 @@ public class homePage extends AppCompatActivity {
                 {
                     Intent intent = new Intent();
                     intent.setClass(homePage.this,mystock.class);
+                    intent.putExtra("id",userName);
                     startActivity(intent);
                     return true;
                 }
