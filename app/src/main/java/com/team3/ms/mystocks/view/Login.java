@@ -17,6 +17,7 @@ import com.team3.ms.mystocks.entity.user;
 import com.team3.ms.mystocks.controller.usercontroller;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.entity.user_info;
 import com.team3.ms.mystocks.tools.News_provider;
 
 import java.util.ArrayList;
@@ -68,6 +69,11 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this,"Success",(int)2000).show();
                     Intent s = new Intent(getApplicationContext(), homePage.class);
                     s.putExtra("id",username);
+
+                    //单例模式全域传值
+                    user_info a = user_info.getInstance();
+                    a.setId(username);
+
 //                    s.putExtra("extra_data",username);
 //                    s.putExtra("extra_password",pw);
                     startActivity(s);

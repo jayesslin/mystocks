@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/stocktitle"
         android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
@@ -23,22 +23,22 @@
 
     <TextView
         android:id="@+id/stocksym"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
 
         android:gravity="center_horizontal"
         android:textColor="#000"
-        android:textSize="18sp"
-        android:text="openprice" />
+        android:textSize="17dp"
+        android:text="Openprice" />
 
     <TextView
     android:id="@+id/stockLastpri"
     android:layout_width="80dp"
-    android:layout_height="wrap_content"
+        android:layout_height="50dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="5dp"
@@ -53,7 +53,7 @@
     <TextView
         android:id="@+id/stocklimit"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
