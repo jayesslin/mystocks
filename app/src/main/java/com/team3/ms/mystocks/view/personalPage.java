@@ -85,7 +85,7 @@ public class personalPage extends AppCompatActivity {
 
 
         //通过用户名获取用户对象
-        user user = dbMgr.getUser(userName);
+        //user user = dbMgr.getUser(userName);
 
 
 

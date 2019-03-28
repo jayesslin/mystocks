@@ -27,7 +27,7 @@ public class Stocks_provider {
     public static final int DEF_READ_TIMEOUT = 30000;
     public static String userAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
 
-    public static final String APPKEY = "f1f7b9a6e48b69f5fceb5e9f7fd0b968";
+    public static final String APPKEY = "219d99f4bb845ce7afde39c6de48ce1d";
     //王鹏云APPKEY：f1f7b9a6e48b69f5fceb5e9f7fd0b968
     //219d99f4bb845ce7afde39c6de48ce1d
 
