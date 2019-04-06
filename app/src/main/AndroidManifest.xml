@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
-        <activity android:name=".view.TransactionRecord" />
-        <activity android:name=".view.mystock" />
         <activity
             android:name=".view.stock_detail"
             android:label="@string/title_activity_stockdetail" />
@@ -32,6 +28,18 @@
         <activity android:name=".view.Allstocks">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.TransactionRecord">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.mystock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="ACTION_NOTIFICATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity android:name=".view.Registrationpage" />

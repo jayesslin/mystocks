@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.mystock">
+
     <RelativeLayout
         android:id="@+id/biaoti_m"
         android:layout_width="match_parent"
@@ -13,8 +14,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimaryDark"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/backH"
@@ -24,9 +26,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="9dp"
-            android:clickable="true"
             android:layout_marginLeft="9dp"
             android:layout_marginBottom="5dp"
+            android:clickable="true"
             app:srcCompat="@drawable/back" />
 
         <ImageView
@@ -38,8 +40,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="7dp"
-            />
+            android:layout_marginBottom="7dp" />
 
         <TextView
             android:id="@+id/mytitle"
@@ -61,6 +62,17 @@
             android:textColor="@android:color/background_light"
             android:textSize="36sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/tongzhi"
+            android:layout_width="73dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="62dp"
+            android:layout_marginBottom="2dp"
+            app:srcCompat="@drawable/tongzhi2" />
+
     </RelativeLayout>
 
     <TextView
