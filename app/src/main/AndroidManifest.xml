@@ -43,6 +43,8 @@
         <activity android:name=".view.search_res" />
         <activity android:name=".view.homePage_orin" />
         <activity android:name=".view.personalPage" />
+        <activity android:name=".view.dailyincPage" />
+        <activity android:name=".view.dailyIncAndLos" />
     </application>
 
 </manifest>

@@ -21,8 +21,6 @@ public class News_provider {
         res = a.net(url, "GET");
         return res;
 
-        }
-
     }
 
-
+}
