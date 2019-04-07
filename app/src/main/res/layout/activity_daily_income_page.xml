@@ -71,116 +71,120 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp">
         <!--第二栏标题-->
-<!--
-        <android.support.design.widget.TabLayout
-            android:id="@+id/mytab"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="6dp"
-            />-->
+        <!--
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/mytab"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="6dp"
+                    />-->
+
         <android.support.design.widget.TabLayout
             android:id="@+id/id_tl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="#ff0900"
-            app:tabSelectedTextColor="#ffaa00"
+            app:tabIndicatorColor="#778899"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
             app:tabTextColor="#FF000000"
             >
+
         </android.support.design.widget.TabLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
             >
 
-                <TextView
-                    android:id="@+id/text_iandL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="Total Profit"
-                    android:textColor="#000"
+            <TextView
+                android:id="@+id/text_iandL"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="2"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Total Profit"
+                android:textColor="#000"
 
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
 
-            </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-        <TextView
-            android:id="@+id/total_IandL"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="@string/textview"
-            android:textColor="#000"
-            android:textSize="40sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        >
-        <TextView
-            android:id="@+id/text_daily_iandL"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_weight="2"
-            android:gravity="right"
-            android:text="Daily Profit: "
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:textSize="18sp" />
-        <TextView
-            android:id="@+id/daily_iandL"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:text="@string/textview"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="10dp"
-        >
-        <!--<android.support.v4.view.ViewPager
-            android:id="@+id/id_vp"
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </android.support.v4.view.ViewPager>-->
-       <!-- <ListView
-
+            android:layout_height="80dp"
+            >
+            <TextView
+                android:id="@+id/total_IandL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/textview"
+                android:textColor="#000"
+                android:textSize="45sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/stockslist"
-            android:dividerHeight="0dp">
+            android:layout_height="35dp"
+            >
+            <TextView
+                android:id="@+id/text_daily_iandL"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="Daily Profit: "
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="25sp" />
+            <TextView
+                android:id="@+id/daily_iandL"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:text="@string/textview"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="25sp" />
+        </LinearLayout>
 
-        </ListView>-->
-
-   <!-- </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            >
+            <!--<android.support.v4.view.ViewPager
+                android:id="@+id/id_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v4.view.ViewPager>-->
+            <!-- <ListView
 
-            android:layout_height="match_parent">-->
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@+id/stockslist"
+                 android:dividerHeight="0dp">
+
+             </ListView>-->
+
+            <!-- </LinearLayout>
+                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                     xmlns:tools="http://schemas.android.com/tools"
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+
+                     android:layout_height="match_parent">-->
 
             <TextView
                 android:id="@+id/Symbol"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -195,7 +199,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -210,7 +214,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -226,7 +230,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
@@ -243,7 +247,7 @@
             android:layout_width="match_parent"
             android:id="@+id/stockslistlayout"
             android:layout_height="match_parent"
-            android:layout_marginTop="100dp"
+
             android:layout_marginBottom="68dp"
             android:orientation="vertical"
 
@@ -253,23 +257,18 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <android.support.v4.view.ViewPager
-                android:id="@+id/id_vp"
+                android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <ListView
+                    android:id="@+id/listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <ListView
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/stockslist"
-                android:dividerHeight="0dp">
-
-            </ListView>
+                </ListView>
             </android.support.v4.view.ViewPager>
+
         </LinearLayout>
     </LinearLayout>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

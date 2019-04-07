@@ -148,6 +148,8 @@ public class Allstocks extends AppCompatActivity {
 
                     return true;
                 }else if(id == R.id.item4){
+                    Intent intent = new Intent();
+                    intent.setClass(Allstocks.this, dailyIncAndLos.class);
                     return true;
                 }
                 return false;

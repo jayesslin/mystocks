@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.entity.IncomeLossObject;
 import com.team3.ms.mystocks.entity.stocklist;
 
 import java.util.List;
@@ -19,10 +20,11 @@ public class Stock_inlo_adapter  extends BaseAdapter {
 
     private List<stocklist> stockList;
     private Context mContext;
-
-    public Stock_inlo_adapter(List<stocklist> stockList, Context mContext) {
+    private List<IncomeLossObject> inandloss;
+    public Stock_inlo_adapter(List<stocklist> stockList, Context mContext,List<IncomeLossObject> inandloss) {
         this.stockList = stockList;
         this.mContext = mContext;
+        this.inandloss= inandloss;
     }
 
     @Override
@@ -50,9 +52,9 @@ public class Stock_inlo_adapter  extends BaseAdapter {
         TextView txt_symbol= (TextView) convertView.findViewById(R.id.stocksym);
 
         txt_title.setText(stockList.get(position).getGid());
-        txt_Lastpri.setText(stockList.get(position).getLastestpri());
-        txt_limit.setText(stockList.get(position).getLimit());
-        txt_symbol.setText(stockList.get(position).getOpenpri());
+        txt_Lastpri.setText(inandloss.get(position).getShares());
+        txt_limit.setText(inandloss.get(position).getProfit());
+        txt_symbol.setText(inandloss.get(position).getDate());
         if(stockList.get(position).getColor().equals("red")){
             txt_limit.setTextColor(android.graphics.Color.RED);
             txt_Lastpri.setTextColor(android.graphics.Color.RED);

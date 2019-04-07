@@ -1,6 +1,7 @@
 package com.team3.ms.mystocks.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.entity.IncomeLossObject;
 import com.team3.ms.mystocks.entity.IncomeandLoss;
 import com.team3.ms.mystocks.entity.stocklist;
 import com.team3.ms.mystocks.tools.Stock_inlo_adapter;
@@ -21,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,6 +43,9 @@ public class dailyIncAndLos extends AppCompatActivity {
     private Stock_inlo_adapter mAdapter1=null;
     private Handler handler;
     private TextView total_IandL,daily_iandL;
+    private List<IncomeLossObject> inandloss =new ArrayList<>();
+    private List<IncomeLossObject> inandloss1 =new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,22 @@ public class dailyIncAndLos extends AppCompatActivity {
         list_stockview=(ListView)findViewById(R.id.stockslist);
         total_IandL = (TextView) findViewById(R.id.total_IandL);
         daily_iandL = (TextView) findViewById(R.id.daily_iandL);
+        ImageView backButton = (ImageView) findViewById(R.id.backH);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s1 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(s1);
+            }
+        });
+        ImageView AllstockButton = (ImageView) findViewById(R.id.stock_w);
+        AllstockButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s1 = new Intent(getApplicationContext(),Allstocks.class);
+                startActivity(s1);
+            }
+        });
         get();
        /* mytab = (TabLayout) findViewById(R.id.mytab);
 
@@ -83,14 +105,12 @@ public class dailyIncAndLos extends AppCompatActivity {
                 //该方法判断是否由该对象生成界面。
                 return view==object;
             }
-
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
                 //这个方法返回一个对象，该对象表明PagerAapter选择哪个对象放在当前的ViewPager中。这里我们返回当前的页面
                 viewPager.addView(viewList.get(position));
                 return viewList.get(position);
             }
-
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 //这个方法从viewPager中移动当前的view。（划过的时候）
@@ -101,21 +121,6 @@ public class dailyIncAndLos extends AppCompatActivity {
 
 
 
-        /*List<View> views=new ArrayList<>();
-        TextView textView=new TextView(this);
-        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        textView.setLayoutParams(layoutParams);
-        textView.setText("Income");
-        textView.setGravity(Gravity.CENTER);
-        views.add(textView);
-        TextView textView1=new TextView(this);
-        LinearLayout.LayoutParams layoutParams1=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        textView1.setLayoutParams(layoutParams1);
-        textView1.setText("Loss");
-        textView1.setGravity(Gravity.CENTER);
-        views.add(textView1);
-        MyPagerAdapter myPagerAdapter=new MyPagerAdapter(views);
-        viewPager.setAdapter(myPagerAdapter);*/
         TabLayout tabLayout= (TabLayout) findViewById(R.id.id_tl);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setText("Income");
@@ -182,20 +187,12 @@ public class dailyIncAndLos extends AppCompatActivity {
                     }else{
                         total_IandL.setTextColor(Color.RED);
                     }
-                    if(daily>0){
-                        daily_iandL.setTextColor(android.graphics.Color.GREEN);
-                    }else{
-                        daily_iandL.setTextColor(Color.RED);
-                    }
 
-                    BigDecimal b   =   new   BigDecimal(daily);
-                    double   f1   =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
                     BigDecimal a   =   new   BigDecimal(total);
-                    double   f2   =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
-                    String res_daily=f1+"$";
+                    double   f2   =   a.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
                     String res = f2+"$";
                     total_IandL.setText(res);
-                    daily_iandL.setText(res_daily);
+                    //daily_iandL.setText(res_daily);
                     /**/
                     /*for (int i = 0 ; i < stock_list.size() ; i++)
                         Log.d("value is" , stock_list.get(i).toString());*/
@@ -203,8 +200,8 @@ public class dailyIncAndLos extends AppCompatActivity {
                     /*mAdapter=new Stock_inlo_adapter(stock_list, dailyIncAndLos.this);
                     listView1.setAdapter( mAdapter);
                     listView2.setAdapter( mAdapter);*/
-
-
+                    double profit1 =0.00;
+                    double profit2 =0.00;
                     List<stocklist> income_list=new ArrayList<>();
                     List<stocklist> loss_list=new ArrayList<>();
                     double[] buy_price = il.getStock_buy_price();
@@ -212,13 +209,36 @@ public class dailyIncAndLos extends AppCompatActivity {
                         Log.i("++++++++ss++",""+Double.parseDouble(stock_list.get(j).getLastestpri()));
                         if(Double.parseDouble(stock_list.get(j).getLastestpri())>buy_price[j]){
                             income_list.add(stock_list.get(j));
+                            IncomeLossObject object = new IncomeLossObject();
+                            object.setDate(il.getStock_date()[j]);
+                            object.setShares(il.getStock_shares()[j]);
+                            String temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())+"";
+                            object.setProfit(temp_profit);
+                            inandloss.add(object);
+                            profit1 += Double.parseDouble(temp_profit);
                         }
                         else{
                             loss_list.add(stock_list.get(j));
+                            IncomeLossObject a1 = new IncomeLossObject();
+                            a1.setDate(il.getStock_date()[j]);
+                            a1.setShares(il.getStock_shares()[j]);
+                            String temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())+"";
+                            a1.setProfit(temp_profit);
+                            inandloss1.add(a1);
+                            profit2 += Double.parseDouble(temp_profit);
                         }
                     }
-                    mAdapter=new Stock_inlo_adapter(income_list, dailyIncAndLos.this);
-                    mAdapter1=new Stock_inlo_adapter(loss_list, dailyIncAndLos.this);
+                    double daily_profit = profit1+ profit2;
+                    String s = daily_profit+"$";
+                    daily_iandL.setText(s);
+                    if(daily_profit>0){
+                        daily_iandL.setTextColor(android.graphics.Color.GREEN);
+                    }else{
+                        daily_iandL.setTextColor(Color.RED);
+                    }
+
+                    mAdapter=new Stock_inlo_adapter(income_list, dailyIncAndLos.this,inandloss);
+                    mAdapter1=new Stock_inlo_adapter(loss_list, dailyIncAndLos.this,inandloss1);
                     listView1.setAdapter( mAdapter);
                     listView2.setAdapter( mAdapter1);
 
