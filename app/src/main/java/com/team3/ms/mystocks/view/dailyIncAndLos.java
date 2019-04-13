@@ -207,25 +207,42 @@ public class dailyIncAndLos extends AppCompatActivity {
                     double[] buy_price = il.getStock_buy_price();
                     for(int j =0 ; j <5;j++){
                         Log.i("++++++++ss++",""+Double.parseDouble(stock_list.get(j).getLastestpri()));
-                        if(Double.parseDouble(stock_list.get(j).getLastestpri())>buy_price[j]){
+                        if(Double.parseDouble(stock_list.get(j).getLastestpri())>Double.parseDouble(stock_list.get(j).getOpenpri())){
                             income_list.add(stock_list.get(j));
                             IncomeLossObject object = new IncomeLossObject();
                             object.setDate(il.getStock_date()[j]);
                             object.setShares(il.getStock_shares()[j]);
-                            String temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())+"";
-                            object.setProfit(temp_profit);
+                            Double temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit());
+                            BigDecimal temp_a   =   new   BigDecimal(temp_profit);
+                            double   profit   =   temp_a.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+                            object.setProfit(profit+"");
                             inandloss.add(object);
-                            profit1 += Double.parseDouble(temp_profit);
+                            //profit1 += Double.parseDouble(temp_profit);
+                            profit1 += temp_profit;
                         }
                         else{
-                            loss_list.add(stock_list.get(j));
+                          /*  loss_list.add(stock_list.get(j));
                             IncomeLossObject a1 = new IncomeLossObject();
                             a1.setDate(il.getStock_date()[j]);
                             a1.setShares(il.getStock_shares()[j]);
                             String temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())+"";
                             a1.setProfit(temp_profit);
                             inandloss1.add(a1);
-                            profit2 += Double.parseDouble(temp_profit);
+                            profit2 += Double.parseDouble(temp_profit);*/
+
+
+                            loss_list.add(stock_list.get(j));
+                            IncomeLossObject a1 = new IncomeLossObject();
+                            a1.setDate(il.getStock_date()[j]);
+                            a1.setShares(il.getStock_shares()[j]);
+                            //String temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())+"";
+                            Double temp_profit = (Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit());
+                            BigDecimal temp_b   =   new   BigDecimal(temp_profit);
+                            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+                            a1.setProfit(profit+"");
+                            inandloss1.add(a1);
+                            // profit2 += Double.parseDouble(temp_profit);
+                            profit2 += temp_profit;
                         }
                     }
                     double daily_profit = profit1+ profit2;
