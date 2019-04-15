@@ -61,13 +61,6 @@
             android:textStyle="bold" />
 
 
-        <ImageView
-            android:id="@+id/tongzhi2"
-            android:layout_width="22dp"
-            android:layout_height="62dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/tongzhi2" />
-
         <TextView
             android:id="@+id/stocklimit1"
 
