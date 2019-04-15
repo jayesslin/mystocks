@@ -78,14 +78,6 @@ public class mystock extends AppCompatActivity {
         String[] list = cc.getlist(dbMgr);
         resContext = mystock.this;
         tongzhi=(ImageView) findViewById(R.id.tongzhi);
-        if (timer.toString().equals("java.util.Timer@de938eb")){
-
-        }
-        else{
-            tongzhi.setImageResource(R.drawable.tongzhi2);
-        }
-
-
         get_list(list);
 
 

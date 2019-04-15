@@ -1,19 +1,28 @@
 package com.team3.ms.mystocks.view;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.team3.ms.mystocks.R;
 import com.team3.ms.mystocks.entity.stocklist;
@@ -26,6 +35,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Allstocks extends AppCompatActivity {
 
@@ -34,8 +45,11 @@ public class Allstocks extends AppCompatActivity {
     private List<stocklist> stock_list=new ArrayList<>();
     private stockAdapter mAdapter=null;
     private Handler handler;
-    private ImageView imageView8,imageView10,search_bt1;
+    private ImageView imageView8,imageView10,search_bt1,tongzhi2;
     private NavigationView navi_v;
+    boolean flag=true,flag2=true;
+    public Timer timer =new Timer();
+    public int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +100,7 @@ public class Allstocks extends AppCompatActivity {
 
             }
         });
+        tongzhi2=(ImageView) findViewById(R.id.tongzhi2);
 
 
 
@@ -94,6 +109,71 @@ public class Allstocks extends AppCompatActivity {
             public void handleMessage(Message msg){
                 if(msg.what == 1){
                     /**/
+                    tongzhi2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+
+                        public void onClick(View v) {
+                            Log.i("timer",timer.toString());
+
+
+                            if (flag2){
+
+                                tongzhi2.setImageResource(R.drawable.tongzhi);
+
+
+                                timer.schedule(new TimerTask() {
+
+                                    @Override
+                                    public void run() {
+
+                                        if(flag){
+                                            add(stock_list);
+                                            i++;
+
+                                        }
+                                        else if (!flag){
+                                            loss(stock_list);
+                                            i++;
+                                        }
+                                        flag=!flag;
+
+
+
+                                    }
+                                }, 5000,5000);
+                                new Thread() {
+                                    public void run() {
+                                        Looper.prepare();
+                                        Toast toast=Toast.makeText(getApplicationContext(), "Notify every 5s", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Looper.loop();//这种情况下，Runnable对象是运行在子线程中的，可以进行联网操作，但是不能更新UI
+                                    }
+                                }.start();
+                                flag2=!flag2;
+
+
+                            }
+                            else{
+                                tongzhi2.setImageResource(R.drawable.tongzhi2);
+                                timer.cancel();
+                                flag2=!flag2;
+                                new Thread() {
+                                    public void run() {
+                                        Looper.prepare();
+                                        Toast toast=Toast.makeText(getApplicationContext(), "Notify canceled", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Looper.loop();//这种情况下，Runnable对象是运行在子线程中的，可以进行联网操作，但是不能更新UI
+                                    }
+                                }.start();
+
+
+
+                            }
+
+
+
+                        }
+                    });
 
                     /*for (int i = 0 ; i < stock_list.size() ; i++)
                         Log.d("value is" , stock_list.get(i).toString());*/
@@ -278,6 +358,56 @@ public class Allstocks extends AppCompatActivity {
 
             }
         }).start();}
+
+    private void add(List<stocklist> sym_list){
+
+
+        for(int i=0;i<sym_list.size();i++){
+            Log.i("stock",sym_list.get(i).getLimit());
+            float num=Float.parseFloat(sym_list.get(i).getLimit());
+            if (num>1){
+                Log.i("stock",""+num);
+                notify1(sym_list.get(i).getGid(),Allstocks.this);
+            }
+        }
+
+
+    }
+    private void loss(List<stocklist> sym_list){
+
+
+        for(int i=0;i<sym_list.size();i++){
+            Log.i("stock",sym_list.get(i).getLimit());
+            float num=Float.parseFloat(sym_list.get(i).getLimit());
+            if (num<-1){
+                Log.i("stock",""+num);
+                notify1(sym_list.get(i).getGid(),Allstocks.this);
+            }
+        }
+
+
+    }
+    public void notify1(String number,Context context){
+        Intent acIntent = new Intent(context, mystock.class);
+        NotificationChannel channel = new NotificationChannel("1",
+                "Channel1", NotificationManager.IMPORTANCE_DEFAULT);
+        channel.enableLights(true); //是否在桌面icon右上角展示小红点
+        channel.setLightColor(Color.GREEN); //小红点颜色
+        channel.setShowBadge(true); //是否在久按桌面图标时显示此渠道的通知
+
+
+        NotificationManager nm = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.createNotificationChannel(channel);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, acIntent, 0);
+        Notification notify = new NotificationCompat.Builder(this,"1")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setTicker("TickerText:" + "You have new message!")
+                .setContentTitle("stockid:"+number)
+                .setContentText("The stock "+number+"‘s limit has changed")
+                .setContentIntent(pi).build();
+        notify.flags |= Notification.FLAG_AUTO_CANCEL; // FLAG_AUTO_CANCEL表明当通知被用户点击时，通知将被清除。
+        nm.notify(1, notify);
+    }
 
 
 
