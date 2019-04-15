@@ -16,16 +16,22 @@
     </item>
         <item
             android:id="@+id/item3"
-            android:icon="@drawable/youxiang"
+            android:icon="@drawable/profile"
             android:title="My Profile">
 
         </item>
         <item
             android:id="@+id/item4"
-            android:icon="@drawable/youxiang"
-            android:title="Function Four">
+            android:icon="@drawable/inandloss"
+            android:title="Income/Loss Center">
 
         </item>
+    <item
+        android:id="@+id/item5"
+        android:icon="@drawable/comingsoon"
+        android:title="Coming Soon.....">
+
+    </item>
     <!--</group>-->
 
 </menu>

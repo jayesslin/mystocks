@@ -8,7 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -137,6 +136,10 @@ public class homePage extends AppCompatActivity {
 
                     return true;
                 }else if(id == R.id.item4){
+                    Intent intent = new Intent();
+                    intent.setClass(homePage.this, dailyIncAndLos.class);
+                    intent.putExtra("id",userName);
+                    startActivity(intent);
                     return true;
                 }
                 return false;
