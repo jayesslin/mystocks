@@ -134,12 +134,23 @@ public class mystock extends AppCompatActivity {
                                         Looper.loop();//这种情况下，Runnable对象是运行在子线程中的，可以进行联网操作，但是不能更新UI
                                     }
                                 }.start();
+                                flag2=!flag2;
 
 
                             }
                             else{
                                 tongzhi.setImageResource(R.drawable.tongzhi2);
                                 timer.cancel();
+                                flag2=!flag2;
+                                new Thread() {
+                                    public void run() {
+                                        Looper.prepare();
+                                        Toast toast=Toast.makeText(getApplicationContext(), "Notify canceled", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Looper.loop();//这种情况下，Runnable对象是运行在子线程中的，可以进行联网操作，但是不能更新UI
+                                    }
+                                }.start();
+
 
 
                             }
