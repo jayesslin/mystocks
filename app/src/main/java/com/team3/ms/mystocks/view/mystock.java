@@ -51,7 +51,8 @@ public class mystock extends AppCompatActivity {
     public static final String TAG = "MyService";
     private final static String ACTION_NOTIFICATION = "ACTION_NOTIFICATION";
     boolean flag=true,flag2=true;
-    public Timer timer =new Timer();
+    Timer timer =new Timer();
+
     public int i=0;
     public String timerstr;
 
@@ -90,15 +91,18 @@ public class mystock extends AppCompatActivity {
                         @Override
 
                         public void onClick(View v) {
-                            Log.i("timer",timer.toString());
+
+
 
 
                             if (flag2){
 
                                 tongzhi.setImageResource(R.drawable.tongzhi);
+                                timer =new Timer();
 
 
-                                        timer.schedule(new TimerTask() {
+
+                                  timer.schedule(new TimerTask() {
 
                                     @Override
                                     public void run() {

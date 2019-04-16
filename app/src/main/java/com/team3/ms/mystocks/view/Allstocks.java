@@ -119,6 +119,7 @@ public class Allstocks extends AppCompatActivity {
                             if (flag2){
 
                                 tongzhi2.setImageResource(R.drawable.tongzhi);
+                                timer =new Timer();
 
 
                                 timer.schedule(new TimerTask() {
