@@ -29,7 +29,7 @@
     <item
         android:id="@+id/item5"
         android:icon="@drawable/comingsoon"
-        android:title="Coming Soon.....">
+        android:title="Personal Stoocks Ranking">
 
     </item>
     <!--</group>-->

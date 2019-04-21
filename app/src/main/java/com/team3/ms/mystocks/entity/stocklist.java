@@ -1,5 +1,7 @@
 package com.team3.ms.mystocks.entity;
 
+import android.util.Log;
+
 public class stocklist {
     private String name;
 
@@ -50,8 +52,10 @@ public class stocklist {
     }
 
     public String getColor() {
-        double colorvalue =  Double.parseDouble(getLimit().toString());
+//        double colorvalue =  Double.parseDouble(getLimit().toString());
 
+        double colorvalue =  Double.parseDouble(getLastestpri())-Double.parseDouble(getOpenpri());
+        Log.i("colortest", colorvalue+"");
         //涨是绿色
         if(colorvalue>0){
             return "green";
