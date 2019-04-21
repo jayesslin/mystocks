@@ -81,71 +81,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            >
-
-            <TextView
-                android:id="@+id/text_iandL"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_weight="2"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Total Profit"
-                android:textColor="#000"
-
-                android:textStyle="bold"
-                android:textSize="18sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            >
-            <TextView
-                android:id="@+id/total_IandL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="@string/textview"
-                android:textColor="#000"
-                android:textSize="45sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            >
-            <TextView
-                android:id="@+id/text_daily_iandL"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_weight="2"
-                android:gravity="right"
-                android:text="Daily Profit: "
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:textSize="25sp" />
-            <TextView
-                android:id="@+id/daily_iandL"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_weight="2"
-                android:gravity="left"
-                android:text="@string/textview"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:textSize="25sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp">
             <!--<android.support.v4.view.ViewPager
                 android:id="@+id/id_vp"
                 android:layout_width="match_parent"
@@ -173,45 +110,45 @@
                 android:id="@+id/Symbol"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
-                android:textStyle="bold"
-
+                android:text="Symbol"
+                android:gravity="center_horizontal"
 
                 android:textColor="#000"
                 android:textSize="18sp"
-                android:text="Symbol" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Date"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
-                android:textStyle="bold"
-
                 android:gravity="center_horizontal"
+
+                android:text="Date"
                 android:textColor="#000"
                 android:textSize="18sp"
-                android:text="Date" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Shares"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
-                android:textStyle="bold"
                 android:gravity="center_horizontal"
+                android:text="Shares"
                 android:textColor="#000"
                 android:textSize="18sp"
-                android:text="Shares" />
+                android:textStyle="bold" />
 
 
             <TextView
@@ -219,17 +156,33 @@
 
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
-                android:textStyle="bold"
-
                 android:gravity="center_horizontal"
+
+                android:text="Profit($)"
                 android:textColor="#000"
                 android:textSize="18sp"
-                android:text="Profit($)" />
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/Sell"
+
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+
+                android:gravity="center_horizontal"
+                android:text="Sell"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>

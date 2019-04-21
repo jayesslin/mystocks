@@ -52,34 +52,51 @@ public class Stock_inlo_adapter  extends BaseAdapter {
         TextView txt_Lastpri = (TextView) convertView.findViewById(R.id.stockLastpri);
         TextView txt_limit= (TextView) convertView.findViewById(R.id.stocklimit);
         TextView txt_symbol= (TextView) convertView.findViewById(R.id.stocksym);
-
+        TextView Sell= (TextView) convertView.findViewById(R.id.Sell);
         txt_title.setText(stockList.get(position).getGid());
-        Double tmp = (Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
-        BigDecimal temp_b   =   new   BigDecimal(tmp);
-        double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
-        txt_limit.setText(profit+"");
+        Sell.setText("Sell");
+
         Log.v("position:", position+" gid:"+stockList.get(position).getGid());
         if(stockList.get(position).getGid().equals("BABA")){
             Log.v("baba", "");
-            txt_Lastpri.setText(inandloss.get(0).getShares());
-
+            txt_Lastpri.setText("100");
             txt_symbol.setText(inandloss.get(0).getDate());
+            Double tmp = 100*(Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
+            BigDecimal temp_b   =   new   BigDecimal(tmp);
+            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+            txt_limit.setText(profit+"");
         }else if(stockList.get(position).getGid().equals("FB")){
-            txt_Lastpri.setText(inandloss.get(2).getShares());
+            txt_Lastpri.setText("20");
 //            txt_limit.setText(inandloss.get(2).getProfit());
-            txt_symbol.setText(inandloss.get(2).getDate());
-        }else if(stockList.get(position).getGid().equals("AMZN")){
-            txt_Lastpri.setText(inandloss.get(4).getShares());
-//            txt_limit.setText(inandloss.get(4).getProfit());
             txt_symbol.setText(inandloss.get(4).getDate());
-        }else if(stockList.get(position).getGid().equals("AAPL")){
-            txt_Lastpri.setText(inandloss.get(1).getShares());
-//            txt_limit.setText(inandloss.get(1).getProfit());
-            txt_symbol.setText(inandloss.get(1).getDate());
-        }else if(stockList.get(position).getGid().equals("PEP")){
-            txt_Lastpri.setText(inandloss.get(3).getShares());
-//            txt_limit.setText(inandloss.get(3).getProfit());
+            Double tmp = 20*(Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
+            BigDecimal temp_b   =   new   BigDecimal(tmp);
+            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+            txt_limit.setText(profit+"");
+        }else if(stockList.get(position).getGid().equals("AMZN")){
+            txt_Lastpri.setText("30");
+//            txt_limit.setText(inandloss.get(4).getProfit());
             txt_symbol.setText(inandloss.get(3).getDate());
+            Double tmp = 30*(Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
+            BigDecimal temp_b   =   new   BigDecimal(tmp);
+            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+            txt_limit.setText(profit+"");
+        }else if(stockList.get(position).getGid().equals("AAPL")){
+            txt_Lastpri.setText("50");
+//            txt_limit.setText(inandloss.get(1).getProfit());
+            txt_symbol.setText(inandloss.get(2).getDate());
+            Double tmp = 50*(Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
+            BigDecimal temp_b   =   new   BigDecimal(tmp);
+            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+            txt_limit.setText(profit+"");
+        }else if(stockList.get(position).getGid().equals("PEP")){
+            txt_Lastpri.setText("200");
+//            txt_limit.setText(inandloss.get(3).getProfit());
+            txt_symbol.setText(inandloss.get(1).getDate());
+            Double tmp = 200*(Double.parseDouble(stockList.get(position).getLastestpri())-Double.parseDouble(stockList.get(position).getOpenpri()));
+            BigDecimal temp_b   =   new   BigDecimal(tmp);
+            double   profit   =   temp_b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+            txt_limit.setText(profit+"");
         }
 
 

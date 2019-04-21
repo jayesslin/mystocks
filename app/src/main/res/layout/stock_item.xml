@@ -10,12 +10,12 @@
         android:id="@+id/stocktitle"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
 
-
+        android:gravity="center_horizontal"
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -25,9 +25,9 @@
         android:id="@+id/stocksym"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
 
         android:gravity="center_horizontal"
@@ -39,7 +39,7 @@
     android:id="@+id/stockLastpri"
     android:layout_width="80dp"
         android:layout_height="50dp"
-    android:layout_marginLeft="10dp"
+    android:layout_marginLeft="5dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
@@ -54,7 +54,7 @@
         android:id="@+id/stocklimit"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
@@ -64,6 +64,20 @@
         android:textSize="18sp"
         android:text="limit" />
 
+    <TextView
+        android:id="@+id/Sell"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text="Sell"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
 
 </LinearLayout>

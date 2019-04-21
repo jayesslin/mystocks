@@ -1,12 +1,14 @@
 package com.team3.ms.mystocks.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import com.team3.ms.mystocks.R;
@@ -22,10 +24,12 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +49,8 @@ public class PersonalStockRanking extends AppCompatActivity {
     private Stock_inlo_adapter mAdapter=null;
     private Stock_inlo_adapter mAdapter1=null;
     private Handler handler;
-    private TextView total_IandL,daily_iandL;
+//    private TextView total_IandL,daily_iandL;
+    private TextView Sell;
     private List<IncomeLossObject> inandloss =new ArrayList<>();
     private List<stocklist> inlo_list=new ArrayList<>();
     //private List<IncomeLossObject> inandloss1 =new ArrayList<>();
@@ -55,8 +60,9 @@ public class PersonalStockRanking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_stock_ranking);
         list_stockview=(ListView)findViewById(R.id.stockslist);
-        total_IandL = (TextView) findViewById(R.id.total_IandL);
-        daily_iandL = (TextView) findViewById(R.id.daily_iandL);
+//        total_IandL = (TextView) findViewById(R.id.total_IandL);
+//        daily_iandL = (TextView) findViewById(R.id.daily_iandL);
+        Sell = (TextView) findViewById(R.id.daily_iandL);
         ImageView backButton = (ImageView) findViewById(R.id.backH);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +85,8 @@ public class PersonalStockRanking extends AppCompatActivity {
         mytab.addTab(mytab.newTab().setText("Income").setIcon(R.mipmap.ic_launcher));
         mytab.addTab(mytab.newTab().setText("Loss").setIcon(R.mipmap.ic_launcher));
 */
-        total_IandL.setText("99999");
-        daily_iandL.setText("-203");
+//        total_IandL.setText("99999");
+//        daily_iandL.setText("-203");
 
         //找到ViewPager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -208,16 +214,16 @@ public class PersonalStockRanking extends AppCompatActivity {
                     total = total_origin-(BABA+PEP+AAPL+AMZN+FB);
                     double daily = (BABA_open+PEP_open+AAPL_open+AMZN_open+FB_open)-(BABA+PEP+AAPL+AMZN+FB);
                     Log.i("++++++++","total大小是" + total);
-                    if(total>0){
-                        total_IandL.setTextColor(android.graphics.Color.GREEN);
-                    }else{
-                        total_IandL.setTextColor(Color.RED);
-                    }
+//                    if(total>0){
+//                        total_IandL.setTextColor(android.graphics.Color.GREEN);
+//                    }else{
+//                        total_IandL.setTextColor(Color.RED);
+//                    }
 
                     BigDecimal a   =   new   BigDecimal(total);
                     double   f2   =   a.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
                     String res = f2+"$";
-                    total_IandL.setText(res);
+//                    total_IandL.setText(res);
                     //daily_iandL.setText(res_daily);
                     /**/
                     /*for (int i = 0 ; i < stock_list.size() ; i++)
@@ -274,12 +280,12 @@ public class PersonalStockRanking extends AppCompatActivity {
                     }
                     double daily_profit = profit1+ profit2;
                     String s = daily_profit+"$";
-                    daily_iandL.setText(s);
-                    if(daily_profit>0){
-                        daily_iandL.setTextColor(android.graphics.Color.GREEN);
-                    }else{
-                        daily_iandL.setTextColor(Color.RED);
-                    }
+//                    daily_iandL.setText(s);
+//                    if(daily_profit>0){
+//                        daily_iandL.setTextColor(android.graphics.Color.GREEN);
+//                    }else{
+//                        daily_iandL.setTextColor(Color.RED);
+//                    }
 //                    double[] rank=new double[5];
 //                    for(int r=0;r<5;r++){
 //                        rank[r] = record[r];
@@ -308,9 +314,29 @@ public class PersonalStockRanking extends AppCompatActivity {
                     Collections.sort(inlo_list, new Comparator<stocklist>() {
                         @Override
                         public int compare(stocklist o1, stocklist o2) {
-
-                            double val1 = Double.parseDouble(o1.getLastestpri())-Double.parseDouble(o1.getOpenpri());
-                            double val2 = Double.parseDouble(o2.getLastestpri())-Double.parseDouble(o2.getOpenpri());
+                            int num1=0,num2=0;
+                            if(o1.getGid().equals("BABA"))
+                                num1=100;
+                            else if(o1.getGid().equals("PEP"))
+                                num1=200;
+                            else if(o1.getGid().equals("AAPL"))
+                                num1=50;
+                            else if(o1.getGid().equals("AMZN"))
+                                num1=30;
+                            else if(o1.getGid().equals("FB"))
+                                num1=20;
+                            if(o2.getGid().equals("BABA"))
+                                num2=100;
+                            else if(o1.getGid().equals("PEP"))
+                                num2=200;
+                            else if(o1.getGid().equals("AAPL"))
+                                num2=50;
+                            else if(o1.getGid().equals("AMZN"))
+                                num2=30;
+                            else if(o1.getGid().equals("FB"))
+                                num2=20;
+                            double val1 = num1*(Double.parseDouble(o1.getLastestpri())-Double.parseDouble(o1.getOpenpri()));
+                            double val2 = num2*(Double.parseDouble(o2.getLastestpri())-Double.parseDouble(o2.getOpenpri()));
                             if(val1<val2) return 1;
                             return -1;
                         }
@@ -318,6 +344,54 @@ public class PersonalStockRanking extends AppCompatActivity {
                     mAdapter=new Stock_inlo_adapter(inlo_list, PersonalStockRanking.this,inandloss);
 //                    mAdapter1=new Stock_inlo_adapter(loss_list, PersonalStockRanking.this,inandloss);
                     listView1.setAdapter( mAdapter);
+                    listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            final AlertDialog.Builder normalDialog =
+                                    new AlertDialog.Builder(PersonalStockRanking.this);
+                            normalDialog.setIcon(R.drawable.ic_launcher_background);
+                            normalDialog.setTitle("Confirm Sell?");
+                            final stocklist s = inlo_list.get(position);
+                            normalDialog.setPositiveButton("YES",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                            for(int si=0;si<inlo_list.size();si++){
+                                                if(inlo_list.get(si).getGid().equals(s.getGid())){
+                                                    inlo_list.remove(si);
+                                                    break;
+                                                }
+                                            }
+                                            mAdapter=new Stock_inlo_adapter(inlo_list, PersonalStockRanking.this,inandloss);
+                                            listView1.setAdapter( mAdapter);
+                                        }
+                                    });
+                            normalDialog.setNegativeButton("NO",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent startIntent = new Intent(getApplicationContext(),PersonalStockRanking.class);
+                                            startActivity(startIntent);
+                                        }
+                                    });
+                            // 显示
+                            normalDialog.show();
+
+                        }
+                    });
+
+
+//                    listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                            event e = dataset.get(position);
+//                            Intent showIntent = new Intent(getApplicationContext(),DetailEvent_Activity.class);
+//                            showIntent.putExtra("_id",e.getId());
+//                            showIntent.putExtra("serializable",e);
+//                            startActivity(showIntent);
+//                        }
+//                    });
 //                    Collections.sort(income_list, new Comparator<stocklist>() {
 //                        @Override
 //                        public int compare(stocklist o1, stocklist o2) {

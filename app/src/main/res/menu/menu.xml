@@ -28,7 +28,7 @@
         </item>
     <item
         android:id="@+id/item5"
-        android:icon="@drawable/comingsoon"
+        android:icon="@drawable/wallet"
         android:title="Personal Stoocks Ranking">
 
     </item>
