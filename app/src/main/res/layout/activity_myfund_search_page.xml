@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.search_res">
+
+    <EditText
+        android:id="@+id/symbol_search"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Enter the fund symbol"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/search_fund"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Go"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss1"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="88dp"
+        android:text="Symbol"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss2"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="240dp"
+        android:gravity="center_horizontal"
+        android:text="NAV"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss3"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="160dp"
+        android:gravity="center_horizontal"
+        android:text="1 Year"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss4"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="80dp"
+        android:gravity="center_horizontal"
+        android:text="3 Years"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss5"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="88dp"
+        android:gravity="center_horizontal"
+        android:text="5 Years"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ListView
+        android:id="@+id/funds_list_search"
+        android:layout_width="395dp"
+        android:layout_height="500dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back_myfund_search"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Back"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

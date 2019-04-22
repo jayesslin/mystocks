@@ -1,11 +1,15 @@
 package com.team3.ms.mystocks.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.team3.ms.mystocks.R;
@@ -26,12 +30,22 @@ public class myfunds extends AppCompatActivity {
     private ListView fund_view;
     private Context mContext;
     private Handler handler;
+    private ImageView search;
     private List<funds> fund_list=new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myfunds_page);
         fund_view = (ListView) findViewById(R.id.funds_list);
+        search = (ImageView)findViewById(R.id.search_bt1);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent s1 = new Intent(getApplicationContext(),myfunds_search.class);
+
+                startActivity(s1);
+            }
+        });
 
         fundslist fl = new fundslist();
         String[] PDFDX1 = {"green", "green", "green"};
@@ -40,50 +54,13 @@ public class myfunds extends AppCompatActivity {
 
         //fund_list.add(PDFDX);
         fund_list=fl.getFund_list();
-        for (funds s : fund_list) {
+       /* for (funds s : fund_list) {
             Log.i("+++++++++", s.getFund_symbol());
-        }
+        }*/
         mAdapter = new fundsadapter(fund_list, myfunds.this);
         fund_view.setAdapter(mAdapter);
     }
 }
-      /*  get();
-        handler = new Handler() {
-            public void handleMessage(Message msg) {
-                if (msg.what == 1) {
-                    mAdapter = new fundsadapter(fund_list, myfunds.this);
-                    fund_view.setAdapter(mAdapter);
-                }
-            }
-        };
-    }
-
-
-            private void get() {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-
-                            String[] PDFDX1 = {"green", "green", "green"};
-                            funds PDFDX = new funds("PDFDX", "$54.88", "41.16%", "27.83%", "8.09$", PDFDX1);
-                            fund_list.add(PDFDX);
-
-                            for (funds s : fund_list) {
-                                Log.i("+++++++++1", s.getFund_symbol());
-                            }
-                            Message msg = new Message();
-                            msg.what = 1;
-                            handler.sendMessage(msg);
-
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
-            }
-*/
 
 
 
