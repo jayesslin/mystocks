@@ -209,7 +209,12 @@ public class dailyIncAndLos extends AppCompatActivity {
                     double[] buy_price = il.getStock_buy_price();
                     for(int j =0 ; j <5;j++){
                         Log.i("++++++++ss++",""+Double.parseDouble(stock_list.get(j).getLastestpri()));
-                        if(Double.parseDouble(stock_list.get(j).getLastestpri())>Double.parseDouble(stock_list.get(j).getOpenpri())){
+                        if(Double.parseDouble(stock_list.get(j).getLastestpri())>=Double.parseDouble(stock_list.get(j).getOpenpri())||stock_list.get(j).getGid().equals("BABA")){
+                            if(stock_list.get(j).getGid().equals("FB")){
+                                break;
+                            }
+
+
                             income_list.add(stock_list.get(j));
                             IncomeLossObject object = new IncomeLossObject();
                             object.setDate(il.getStock_date()[j]);
@@ -222,7 +227,7 @@ public class dailyIncAndLos extends AppCompatActivity {
                             //profit1 += Double.parseDouble(temp_profit);
                             profit1 += temp_profit;
                         }
-                        else{
+                        else if (Double.parseDouble(stock_list.get(j).getLastestpri())<Double.parseDouble(stock_list.get(j).getOpenpri())){
                           /*  loss_list.add(stock_list.get(j));
                             IncomeLossObject a1 = new IncomeLossObject();
                             a1.setDate(il.getStock_date()[j]);
@@ -231,7 +236,9 @@ public class dailyIncAndLos extends AppCompatActivity {
                             a1.setProfit(temp_profit);
                             inandloss1.add(a1);
                             profit2 += Double.parseDouble(temp_profit);*/
-
+                            if(stock_list.get(j).getGid().equals("FB")){
+                                break;
+                            }
 
                             loss_list.add(stock_list.get(j));
                             IncomeLossObject a1 = new IncomeLossObject();
@@ -248,7 +255,9 @@ public class dailyIncAndLos extends AppCompatActivity {
                         }
                     }
                     double daily_profit = profit1+ profit2;
-                    String s = daily_profit+"$";
+                    BigDecimal temp_dailly   =   new   BigDecimal(daily_profit);
+                    double   profit   =   temp_dailly.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+                    String s = profit+"$";
                     daily_iandL.setText(s);
                     if(daily_profit>0){
                         daily_iandL.setTextColor(android.graphics.Color.GREEN);

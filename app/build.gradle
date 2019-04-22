@@ -5,7 +5,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.team3.ms.mystocks"
-        minSdkVersion 26
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"

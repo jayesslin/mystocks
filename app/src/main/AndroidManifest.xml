@@ -54,6 +54,7 @@
         <activity android:name=".view.personalPage" />
         <activity android:name=".view.dailyincPage" />
         <activity android:name=".view.dailyIncAndLos" />
+        <activity android:name=".view.myfunds" />
     </application>
 
 </manifest>

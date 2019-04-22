@@ -148,6 +148,13 @@ public class homePage extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 }
+                else if(id == R.id.item7){
+                    Intent intent = new Intent();
+                    intent.setClass(homePage.this, myfunds.class);
+                    intent.putExtra("id",userName);
+                    startActivity(intent);
+                    return true;
+                }
                 return false;
             }
         });

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.mystock">
+
+    <RelativeLayout
+        android:id="@+id/biaoti_m"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backH"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/search_bt1"
+            android:layout_width="55dp"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:scaleType="center"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="7dp"
+            app:srcCompat="@drawable/sousuo77" />
+
+        <TextView
+            android:id="@+id/mytitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="65dp"
+
+            android:layout_marginRight="65dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toStartOf="@+id/search_bt1"
+            android:layout_toLeftOf="@+id/search_bt1"
+            android:layout_toEndOf="@+id/menu"
+            android:layout_toRightOf="@+id/menu"
+            android:gravity="center"
+            android:text="My Funds"
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ss1"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="76dp"
+        android:paddingLeft="20dp"
+        android:text="Symbol"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss2"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="244dp"
+        android:gravity="center_horizontal"
+        android:text="NAV"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss3"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="164dp"
+        android:gravity="center_horizontal"
+        android:text="1 Year"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss4"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="84dp"
+        android:gravity="center_horizontal"
+        android:text="3 Years"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ss5"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center_horizontal"
+        android:text="5 Years"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ListView
+        android:id="@+id/funds_list"
+        android:layout_width="395dp"
+        android:layout_height="500dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
