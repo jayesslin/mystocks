@@ -45,7 +45,7 @@ public class rankadapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.stock_item, parent,false);
+        convertView = LayoutInflater.from(mContext).inflate(R.layout.stock_item2, parent,false);
 
         TextView txt_title = (TextView) convertView.findViewById(R.id.stocktitle);
         TextView txt_Lastpri = (TextView) convertView.findViewById(R.id.stockLastpri);
