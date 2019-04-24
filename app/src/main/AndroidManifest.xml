@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.PersonalStockRanking"></activity>
+        <activity android:name=".view.fund_option"></activity>
+        <activity android:name=".view.PersonalStockRanking" />
         <activity
             android:name=".view.stock_detail"
             android:label="@string/title_activity_stockdetail" />
