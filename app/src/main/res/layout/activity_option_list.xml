@@ -9,6 +9,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="43dp">
+
             <TextView
                 android:id="@+id/s_op"
                 android:layout_width="80dp"
@@ -21,24 +22,24 @@
 
             <TextView
                 android:id="@+id/s1_op"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/s_op"
                 android:layout_toRightOf="@+id/s_op"
                 android:gravity="center_horizontal"
-                android:text="NAV"
+                android:text="Type"
                 android:textColor="#000"
                 android:textSize="18sp" />
 
 
             <TextView
                 android:id="@+id/s2_op"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="1 Year"
+                android:text="Price"
                 android:textColor="#000"
                 android:textSize="18sp" />
 
@@ -48,17 +49,17 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="3 Years"
+                android:text="Position"
                 android:textColor="#000"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/s4_op"
-                android:layout_width="80dp"
+                android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="5 Years"
+                android:text="Expiration data"
                 android:textColor="#000"
                 android:textSize="18sp" />
 

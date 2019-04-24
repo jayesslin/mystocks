@@ -9,9 +9,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.entity.option;
+import com.team3.ms.mystocks.entity.optionList;
+import com.team3.ms.mystocks.tools.optionAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +25,8 @@ public class fund_option extends AppCompatActivity {
     private ImageView backButton;
     private ViewPager fp_viewpaper;
     private ArrayList<View> fp_List;
+    private optionAdapter mAdapter=null;
+    private List<option> option_list=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +43,10 @@ public class fund_option extends AppCompatActivity {
         fp_viewpaper = (ViewPager) findViewById(R.id.viewpaper_fp);
         fp_List = new ArrayList<View>();
         LayoutInflater li = getLayoutInflater();
-        fp_List.add(li.inflate(R.layout.activity_option_list,null,false));
         fp_List.add(li.inflate(R.layout.activity_fund_list,null,false));
+        View view_option = li.inflate(R.layout.activity_option_list,null,false);
+        fp_List.add(view_option);
+//        fp_List.add(li.inflate(R.layout.activity_option_list,null,false));
         fp_viewpaper.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -67,6 +76,22 @@ public class fund_option extends AppCompatActivity {
         tabLayout.setupWithViewPager(fp_viewpaper);
         tabLayout.getTabAt(0).setText("Funds");
         tabLayout.getTabAt(1).setText("Option");
+        ListView option_l = (ListView) view_option.findViewById(R.id.op_list);
+        optionList ol = new optionList();
+        option_list=ol.getOption_list();
+        mAdapter = new optionAdapter(option_list, fund_option.this);
+        option_l.setAdapter(mAdapter);
+        option_l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                option a=option_list.get(position);
+                System.out.println("this"+a);
+                Intent intent=new Intent(fund_option.this, option_detail.class);
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 }

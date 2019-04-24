@@ -1,70 +1,61 @@
 package com.team3.ms.mystocks.entity;
 
 public class option {
-    private String fund_symbol;
-    private String fund_nav;
-    private String fund_1y;
-    private String fund_3y;
-    private String fund_5y;
-    private String[] color;
+    private String option_symbol;
+    private String option_type;
+    private String option_price;
+    private String option_position;
+    private String option_date;
 
 
-    public option(String fund_symbol,String fund_nav,String fund_1y,String fund_3y,String fund_5y,String[] color){
-        this.fund_symbol=fund_symbol;
-        this.fund_nav=fund_nav;
-        this.fund_1y=fund_1y;
-        this.fund_3y=fund_3y;
-        this.fund_5y=fund_5y;
-        this.color=color;
-    }
-
-    public String[] getColor() {
-        return color;
-    }
-
-    public void setColor(String[] color) {
-        this.color = color;
+    public option(String option_symbol,String option_type,String option_price,String option_position,String option_date){
+        this.option_symbol=option_symbol;
+        this.option_type=option_type;
+        this.option_price=option_price;
+        this.option_position=option_position;
+        this.option_date=option_date;
     }
 
 
-    public String getFund_symbol() {
-        return fund_symbol;
+
+    public String getOption_symbol() {
+        return option_symbol;
     }
 
-    public void setFund_symbol(String fund_symbol) {
-        this.fund_symbol = fund_symbol;
+    public void setOption_symbol(String option_symbol) {
+        this.option_symbol = option_symbol;
     }
 
-    public String getFund_nav() {
-        return fund_nav;
+    public String getOption_type() {
+        return option_type;
     }
 
-    public void setFund_nav(String fund_nav) {
-        this.fund_nav = fund_nav;
+    public void setOption_type(String option_type) {
+        this.option_type = option_type;
     }
 
-    public String getFund_1y() {
-        return fund_1y;
+    public String getOption_price() {
+        return option_price;
     }
 
-    public void setFund_1y(String fund_1y) {
-        this.fund_1y = fund_1y;
+    public void setOption_price(String option_price) {
+        this.option_price = option_price;
     }
 
-    public String getFund_3y() {
-        return fund_3y;
+    public String getOption_position() {
+        return option_position;
     }
 
-    public void setFund_3y(String fund_3y) {
-        this.fund_3y = fund_3y;
+    public void setOption_position(String option_position) {
+        this.option_position = option_position;
     }
 
-    public String getFund_5y() {
-        return fund_5y;
+    public String getOption_date() {
+        return option_date;
     }
 
-    public void setFund_5y(String fund_5y) {
-        this.fund_5y = fund_5y;
+    public void setOption_date(String option_date) {
+        this.option_date = option_date;
     }
 
 
