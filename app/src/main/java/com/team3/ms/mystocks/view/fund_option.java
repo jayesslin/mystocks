@@ -14,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.team3.ms.mystocks.R;
+import com.team3.ms.mystocks.entity.funds;
+import com.team3.ms.mystocks.entity.fundslist;
 import com.team3.ms.mystocks.entity.option;
 import com.team3.ms.mystocks.entity.optionList;
+import com.team3.ms.mystocks.tools.fundsadapter;
 import com.team3.ms.mystocks.tools.optionAdapter;
 
 import java.util.ArrayList;
@@ -26,7 +29,9 @@ public class fund_option extends AppCompatActivity {
     private ViewPager fp_viewpaper;
     private ArrayList<View> fp_List;
     private optionAdapter mAdapter=null;
+    private fundsadapter mAdapter_1=null;
     private List<option> option_list=new ArrayList<>();
+    private List<funds> fund_list=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,10 @@ public class fund_option extends AppCompatActivity {
         fp_viewpaper = (ViewPager) findViewById(R.id.viewpaper_fp);
         fp_List = new ArrayList<View>();
         LayoutInflater li = getLayoutInflater();
-        fp_List.add(li.inflate(R.layout.activity_fund_list,null,false));
+        View view_fund = li.inflate(R.layout.activity_fund_list,null,false);
+        fp_List.add(view_fund);
         View view_option = li.inflate(R.layout.activity_option_list,null,false);
         fp_List.add(view_option);
-//        fp_List.add(li.inflate(R.layout.activity_option_list,null,false));
         fp_viewpaper.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -85,6 +90,23 @@ public class fund_option extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 option a=option_list.get(position);
+                System.out.println("this"+a);
+                Intent intent=new Intent(fund_option.this, option_detail.class);
+                startActivity(intent);
+
+            }
+        });
+        fundslist fl = new fundslist();
+        //fund_list.add(PDFDX);
+        ListView fund_l = (ListView) view_fund.findViewById(R.id.fun_list);
+        fund_list=fl.getAllFund_list();
+        System.out.println(fund_list);
+        mAdapter_1 = new fundsadapter(fund_list, fund_option.this);
+        fund_l.setAdapter(mAdapter_1);
+        fund_l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                funds a=fund_list.get(position);
                 System.out.println("this"+a);
                 Intent intent=new Intent(fund_option.this, option_detail.class);
                 startActivity(intent);
