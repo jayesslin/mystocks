@@ -108,7 +108,7 @@ public class fund_option extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 funds a=fund_list.get(position);
                 System.out.println("this"+a);
-                Intent intent=new Intent(fund_option.this, option_detail.class);
+                Intent intent=new Intent(fund_option.this, fund_details.class);
                 startActivity(intent);
 
             }
