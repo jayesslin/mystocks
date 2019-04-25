@@ -12,13 +12,13 @@ import android.widget.ListView;
 import com.team3.ms.mystocks.R;
 public class TransactionRecord extends AppCompatActivity {
 
-    private String[] data = {"03-22-2019                    FB                          +1000",
-            "03-20-2018                    AMZN                    +300",
-            "03-18-2018                    NFLX                     +500",
-            "03-15-2018                    NKE                       +900",
-            "01-01-2019                    AMZN                    -800",
-            "08-28-2018                    AMZN                    +800",
-            "05-10-2018                    NFLX                     +1000"};
+    private String[] data = {"03-21-2019                 FB                   +1000           164.34",
+            "03-20-2019              AMZN                +300          1819.26",
+            "03-18-2019               NFLX                 +500            358.78",
+            "03-14-2019                NKE                  +900            86.80",
+            "01-01-2019              AMZN                -800          1539.13",
+            "08-28-2018              AMZN                +800         1998.10",
+            "05-10-2018               NFLX               +1000          326.46"};
 //    private String[] date = {"03-22-2019", "01-01-2019", "08-28-2018", "05-10-2018"};
 //    private String[] stockID = {"FB", "AMZN", "AMZN", "NFLX"};
 //    private String[] record = {"+1000", "-800", "+800", "+1000"};
