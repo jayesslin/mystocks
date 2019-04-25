@@ -8,6 +8,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -30,7 +31,7 @@ public class myfunds extends AppCompatActivity {
     private ListView fund_view;
     private Context mContext;
     private Handler handler;
-    private ImageView search;
+    private ImageView search,backButton;
     private List<funds> fund_list=new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,16 @@ public class myfunds extends AppCompatActivity {
                 startActivity(s1);
             }
         });
+        backButton = (ImageView) findViewById(R.id.backH);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent s1 = new Intent(getApplicationContext(),homePage.class);
+                startActivity(s1);
+            }
+        });
+
+
 
         fundslist fl = new fundslist();
         String[] PDFDX1 = {"green", "green", "green"};
@@ -53,12 +64,22 @@ public class myfunds extends AppCompatActivity {
 
 
         //fund_list.add(PDFDX);
-        fund_list=fl.getFund_list();
+        fund_list=fl.getMy_list();
        /* for (funds s : fund_list) {
             Log.i("+++++++++", s.getFund_symbol());
         }*/
         mAdapter = new fundsadapter(fund_list, myfunds.this);
         fund_view.setAdapter(mAdapter);
+        fund_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                funds a=fund_list.get(position);
+                System.out.println("this"+a);
+                Intent intent=new Intent(myfunds.this, fund_details.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }
 

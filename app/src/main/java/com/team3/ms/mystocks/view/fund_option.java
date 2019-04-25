@@ -99,7 +99,7 @@ public class fund_option extends AppCompatActivity {
         fundslist fl = new fundslist();
         //fund_list.add(PDFDX);
         ListView fund_l = (ListView) view_fund.findViewById(R.id.fun_list);
-        fund_list=fl.getAllFund_list();
+        fund_list=fl.getFund_list();
         System.out.println(fund_list);
         mAdapter_1 = new fundsadapter(fund_list, fund_option.this);
         fund_l.setAdapter(mAdapter_1);

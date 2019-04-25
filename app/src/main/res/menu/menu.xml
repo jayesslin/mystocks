@@ -2,7 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <!--<group android:checkableBehavior="single">-->
-        <item
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/profile"
+        android:title="Profile">
+
+    </item>
+    <item
             android:id="@+id/item1"
             android:icon="@drawable/star"
             android:title="My stocks">
@@ -14,12 +20,7 @@
         android:title="Transaction Record">
 
     </item>
-        <item
-            android:id="@+id/item3"
-            android:icon="@drawable/profile"
-            android:title="My Profile">
 
-        </item>
         <item
             android:id="@+id/item4"
             android:icon="@drawable/inandloss"
@@ -34,13 +35,13 @@
     </item>
     <item
         android:id="@+id/item6"
-        android:icon="@drawable/comingsoon"
+        android:icon="@drawable/option"
         android:title="Funds and option">
 
     </item>
     <item
         android:id="@+id/item7"
-        android:icon="@drawable/comingsoon"
+        android:icon="@drawable/fund1"
         android:title="My funds">
 
     </item>

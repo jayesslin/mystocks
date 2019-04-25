@@ -95,7 +95,7 @@ public class myfunds_search extends AppCompatActivity {
                     List<funds> fundlist = fl.getFund_list();
                     int i = 0;
                     boolean flag = false;
-                    while(flag == false && i < 2){
+                    while(flag == false && i < fundlist.size()){
                         Log.i("++++++++++++++搜索匹配",fundlist.get(i).getFund_symbol());
                         if(symbol.equals(fundlist.get(i).getFund_symbol())){
 
