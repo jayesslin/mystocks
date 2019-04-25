@@ -45,7 +45,7 @@
             android:layout_toEndOf="@+id/menu"
             android:layout_toRightOf="@+id/menu"
             android:gravity="center"
-            android:text="Funds and option"
+            android:text="Fund and option"
             android:textColor="@android:color/background_light"
             android:textSize="26sp"
             android:textStyle="bold" />

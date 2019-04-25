@@ -60,7 +60,7 @@
             android:layout_toEndOf="@+id/menu"
             android:layout_toRightOf="@+id/menu"
             android:gravity="center"
-            android:text="My Funds"
+            android:text="My Fund"
             android:textColor="@android:color/background_light"
             android:textSize="36sp"
             android:textStyle="bold" />
