@@ -48,15 +48,15 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="35dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginEnd="17dp"
+            android:layout_marginEnd="5dp"
 
             android:layout_marginRight="90dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="13dp"
             android:layout_toStartOf="@+id/stock_w"
             android:gravity="center"
             android:text="Personal Stocks Ranking"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp"
+            android:textSize="21sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -118,12 +118,12 @@
                 android:gravity="center_horizontal"
 
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Date"
-                android:layout_width="95dp"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -133,12 +133,12 @@
 
                 android:text="Date"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Shares"
-                android:layout_width="77dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -147,7 +147,7 @@
                 android:gravity="center_horizontal"
                 android:text="Shares"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
@@ -164,13 +164,13 @@
 
                 android:text="Profit($)"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Sell"
 
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -181,7 +181,7 @@
                 android:gravity="center_horizontal"
                 android:text="Sell"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 

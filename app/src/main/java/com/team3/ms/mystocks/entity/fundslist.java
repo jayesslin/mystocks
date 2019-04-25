@@ -9,9 +9,9 @@ public class fundslist {
     String[] PDFDX1 ={"green","green","green"};
     funds PDFDX = new funds("PDFDX","54.88","41.16%","27.83%","8.09%",PDFDX1);
     String[]  FAGOX1={"green","green","green"};
-    funds FAGOX =new funds("FAGOX","80.29","33.50","24.65","16.13",FAGOX1);
+    funds FAGOX =new funds("FAGOX","80.29","33.50%","24.65%","16.13%",FAGOX1);
     String[] MPEGX1={"green","green","green"};
-    funds MPEGX=new funds("MPEGX","19.15","30.87","23.70","10.28",MPEGX1);
+    funds MPEGX=new funds("MPEGX","19.15","30.87%","23.70%","10.28%",MPEGX1);
 
 
     String[]  IMSIX1={"green","green","red"};
