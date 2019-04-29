@@ -152,7 +152,7 @@
             android:layout_marginStart="13dp"
             android:layout_marginTop="13dp"
             android:layout_marginBottom="185dp"
-            android:text="Total Assets:"
+            android:text="Total Profit:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -164,7 +164,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="11dp"
             android:layout_marginBottom="70dp"
-            android:text="Total Value:"
+            android:text="Total Asset:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -188,7 +188,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="70dp"
-            android:text="Loss On Day:"
+            android:text="Total profit ratio"
             android:textSize="18sp"
             android:textStyle="bold" />
 

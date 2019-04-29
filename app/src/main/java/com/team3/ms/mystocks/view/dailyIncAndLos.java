@@ -209,10 +209,10 @@ public class dailyIncAndLos extends AppCompatActivity {
                     double[] buy_price = il.getStock_buy_price();
                     for(int j =0 ; j <5;j++){
                         Log.i("++++++++ss++",""+Double.parseDouble(stock_list.get(j).getLastestpri()));
-                        if(Double.parseDouble(stock_list.get(j).getLastestpri())>=Double.parseDouble(stock_list.get(j).getOpenpri())||stock_list.get(j).getGid().equals("BABA")){
-                            if(stock_list.get(j).getGid().equals("FB")){
+                        if((Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())>0){
+                         /*   if(stock_list.get(j).getGid().equals("FB")){
                                 break;
-                            }
+                            }*/
 
 
                             income_list.add(stock_list.get(j));
@@ -227,7 +227,7 @@ public class dailyIncAndLos extends AppCompatActivity {
                             //profit1 += Double.parseDouble(temp_profit);
                             profit1 += temp_profit;
                         }
-                        else if (Double.parseDouble(stock_list.get(j).getLastestpri())<Double.parseDouble(stock_list.get(j).getOpenpri())){
+                        else if ((Integer.parseInt(il.getStock_shares()[j])) *  Double.parseDouble(stock_list.get(j).getLimit())<=0){
                           /*  loss_list.add(stock_list.get(j));
                             IncomeLossObject a1 = new IncomeLossObject();
                             a1.setDate(il.getStock_date()[j]);
@@ -236,9 +236,9 @@ public class dailyIncAndLos extends AppCompatActivity {
                             a1.setProfit(temp_profit);
                             inandloss1.add(a1);
                             profit2 += Double.parseDouble(temp_profit);*/
-                            if(stock_list.get(j).getGid().equals("FB")){
+                       /*     if(stock_list.get(j).getGid().equals("FB")){
                                 break;
-                            }
+                            }*/
 
                             loss_list.add(stock_list.get(j));
                             IncomeLossObject a1 = new IncomeLossObject();
